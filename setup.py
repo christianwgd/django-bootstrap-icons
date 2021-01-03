@@ -1,7 +1,10 @@
 import setuptools
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    long_description = open('README.md').read()
 
 setuptools.setup(
     name='django-bootstrap-icons',
@@ -12,7 +15,6 @@ setuptools.setup(
     include_package_data=True,
     description='A quick way to add Bootstrap Icons with Django template tags.',
     long_description=long_description,
-    long_description_content_type='text/markdown',
     author='Christian Wiegand',
     license='MIT',
     url='https://github.com/christianwgd/django-bootstrap-icons',
