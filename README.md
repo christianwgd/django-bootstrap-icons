@@ -42,7 +42,7 @@ Please read [CONTRIBUTING.md](https://github.com/christianwgd/django-bootstrap-i
 
 * **Christian Wiegand** - *Creator* - [christianwgd](https://github.com/christianwgd)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/christianwgd/django-bootstrap-icons/blob/master/CONTRIBUTORS.md) who participated in this project.
 
 ## License
 
