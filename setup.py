@@ -1,10 +1,7 @@
 import setuptools
 
-try:
-    import pypandoc
-    long_description = pypandoc.convert_file('README.md', 'rst')
-except(IOError, ImportError):
-    long_description = open('README.md').read()
+with open("README.rst", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
 setuptools.setup(
     name='django-bootstrap-icons',
