@@ -2,7 +2,9 @@
 
 A quick way to add [Bootstrap Icons](https://icons.getbootstrap.com) with Django template tags.
 
-This package contains Bootstrap Icons v1.2.2 (Jan 2021).
+This package contains Bootstrap Icons v1.2.2 (Jan 2021). 
+
+The icons are embedded from the icon font. If you'd rather like to use the svg images try this one: [django_bs_icons](https://github.com/mattburlage/django_bs_icons). 
 
 ## Installing
 
