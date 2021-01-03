@@ -1,10 +1,9 @@
-import os
-from setuptools import find_packages, setup
+import setuptools
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
-    README = readme.read()
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
-setup(
+setuptools.setup(
     name='django-bootstrap-icons',
     version='0.1.0',
     packages=[
@@ -12,7 +11,8 @@ setup(
     ],
     include_package_data=True,
     description='A quick way to add Bootstrap Icons with Django template tags.',
-    long_description=README,
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author='Christian Wiegand',
     license='MIT',
     url='https://github.com/christianwgd/django-bootstrap-icons',
@@ -20,4 +20,10 @@ setup(
     install_requires=[
         'django',
     ],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
 )
