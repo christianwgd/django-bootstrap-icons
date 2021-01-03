@@ -12,6 +12,7 @@ setuptools.setup(
     include_package_data=True,
     description='A quick way to add Bootstrap Icons with Django template tags.',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Christian Wiegand',
     license='MIT',
     url='https://github.com/christianwgd/django-bootstrap-icons',
