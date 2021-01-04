@@ -4,12 +4,13 @@ BOOTSTRAP_ICON_CLASS = 'bi'
 
 register = Library()
 
+
 @register.inclusion_tag('django_bootstrap_icons/icon.html')
 def bs_icon(icon_name, extra_classes=None):
     """
     Template tag for rendering a bootstrap icon
     :param str icon_name: Name of material icon to render
-    :param str extr_classes: String of classes to add to icon
+    :param str extra_classes: String of classes to add to icon
     """
     # add extra classes onto material class tag
     class_str = BOOTSTRAP_ICON_CLASS
@@ -20,6 +21,7 @@ def bs_icon(icon_name, extra_classes=None):
         'classes': class_str,
         'icon_name': icon_name,
     }
+
 
 @register.inclusion_tag('django_bootstrap_icons/include_bootstrap_icons.html')
 def include_bootstrap_icons():
