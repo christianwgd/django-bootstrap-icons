@@ -44,10 +44,6 @@ To style the icons, you can add extra css classes:
 
 Sizing classes are included in the bootstrap icon css:
 
-```
-{% bs_icon 'alarm' extra_classes='bi-sm' %}
-```
-
 ![Icon sizes](https://github.com/christianwgd/django-bootstrap-icons/blob/master/django_bootstrap_icons/static/img/icon-sizes.png "Icon sizes")
 
 ```
