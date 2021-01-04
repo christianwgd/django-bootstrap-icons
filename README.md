@@ -56,7 +56,7 @@ Sizing classes are included in the bootstrap icon css:
 {% bs_icon 'alarm' extra_classes='bi-10x' %}
 ```
 
-If you have the bootstrap css included, you can use the bootstrap color classes:
+If you have bootstrap css included, you can use the bootstrap color classes:
 
 ![Icon colors](https://github.com/christianwgd/django-bootstrap-icons/blob/master/django_bootstrap_icons/static/img/icon-colors.png "Icon colors")
 
