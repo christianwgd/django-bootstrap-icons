@@ -34,6 +34,34 @@ Then, add an icon with the following tag. Give the name icon's name as the first
 {% bs_icon 'alarm' %}
 ```
 
+### Icon styling
+
+To style the icons, you can add extra css classes:
+
+```
+{% bs_icon 'alarm' extra_classes='your-class-name' %}
+```
+
+Sizing classes are included in the bootstrap icon css:
+
+```
+{% bs_icon 'alarm' extra_classes='bi-sm' %}
+```
+
+![Icon sizes](https://github.com/christianwgd/django-bootstrap-icons/blob/master/django_bootstrap_icons/static/img/icon-sizes.png "Icon sizes")
+
+```
+{% bs_icon 'alarm' extra_classes='bi-xs' %}
+{% bs_icon 'alarm' extra_classes='bi-sm' %}
+{% bs_icon 'alarm' extra_classes='bi-2x' %}
+{% bs_icon 'alarm' extra_classes='bi-3x' %}
+{% bs_icon 'alarm' extra_classes='bi-5x' %}
+{% bs_icon 'alarm' extra_classes='bi-7x' %}
+{% bs_icon 'alarm' extra_classes='bi-10x' %}
+```
+
+
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/christianwgd/django-bootstrap-icons/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
