@@ -56,18 +56,6 @@ Sizing classes are included in the bootstrap icon css:
 {% bs_icon 'alarm' extra_classes='bi-10x' %}
 ```
 
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://github.com/christianwgd/django-bootstrap-icons/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Authors
-
-* **Christian Wiegand** - *Creator* - [christianwgd](https://github.com/christianwgd)
-
-See also the list of [contributors](https://github.com/christianwgd/django-bootstrap-icons/blob/master/CONTRIBUTORS.md) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/christianwgd/django-bootstrap-icons/blob/master/LICENSE) file for details
