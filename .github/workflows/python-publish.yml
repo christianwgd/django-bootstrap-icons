@@ -5,11 +5,9 @@ name: Upload Python Package
 
 on: push
 
-environment: DEPLOYMENT
-
 jobs:
   deploy:
-
+    environment: DEPLOYMENT
     runs-on: ubuntu-latest
 
     steps:
