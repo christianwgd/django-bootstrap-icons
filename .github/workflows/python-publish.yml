@@ -5,7 +5,7 @@ name: Upload Python Package
 
 on: push
 
-evironment: DEPLOYMENT
+environment: DEPLOYMENT
 
 jobs:
   deploy:
