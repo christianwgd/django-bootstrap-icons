@@ -1,3 +1,4 @@
+""" django bootstrap icons templatetags """
 from django.template import Library
 
 BOOTSTRAP_ICON_CLASS = 'bi'
