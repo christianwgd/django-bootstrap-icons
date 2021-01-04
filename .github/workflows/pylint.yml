@@ -17,6 +17,8 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Install Django
+        run: pip install django
       - name: Install pylint
         run: pip install pylint
 
