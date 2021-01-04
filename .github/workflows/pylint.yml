@@ -17,9 +17,9 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install black
-        run: pip install black
+      - name: Install pylint
+        run: pip install pylint
 
       - name: Check format
-        run: black --check django_bootstrap_icons/
+        run: find ./django_bootstrap_icons -type f -name "*.py" | xargs pylint
     
