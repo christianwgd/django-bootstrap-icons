@@ -1,5 +1,13 @@
 # django-bootstrap-icons
 
+> At the end this package doesn't seem very useful. It's more for me learning about Github action workflow and 
+> automated upload to pypi.org.
+> 
+> If you really want to use bootstrap icons font simply add their CDN to your templates and insert the icon tags in 
+> your HTML: ```<i class="bi-alarm"></i>```
+> 
+> This repo won't be updated unless somone finds a useful szenario ;-)
+
 A quick way to add [Bootstrap Icons](https://icons.getbootstrap.com) with Django template tags.
 
 This package contains Bootstrap Icons v1.2.2 (Jan 2021). 
