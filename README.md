@@ -6,7 +6,7 @@
 > If you really want to use bootstrap icons font simply add their CDN to your templates and insert the icon tags in 
 > your HTML: ```<i class="bi-alarm"></i>```
 > 
-> This repo won't be updated unless somone finds a useful szenario ;-)
+> This repo won't be updated unless somone finds a useful scenario ;-)
 
 A quick way to add [Bootstrap Icons](https://icons.getbootstrap.com) with Django template tags.
 
