@@ -25,9 +25,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-Also, include the following tags in your base template file. It includes the 
-CDN link to the bootstrap icons web font. If you have your own source for the 
-web font, feel free to opt out of this tag!
+Also, load the tag library in your template file:
 
 ```
 {% load bootstrap_icons %}
@@ -118,10 +116,10 @@ This project is licensed under the MIT License - see the
 
 ## Migration
 
-If you had installed an earlier version of this package, please remove the 
+If you had installed an earlier version of this package, you have to change some things:
 
-```
-{% include_bootstrap_icons %}
-```
+* Please remove the *include_bootstrap_icons* template tag, 
+  since this is no longer needed.
 
-template tag, since this is no longer available.
+* Change the name of the loading tag from 
+  *django_bootstrap_icons* to *bootstrap_icons*.
