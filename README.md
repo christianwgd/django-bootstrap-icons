@@ -95,7 +95,7 @@ BS_ICONS_CUSTOM_PATH = 'custom-icons'
 ## Example App
 
 There's an [Example App](https://github.com/christianwgd/django-bootstrap-icons-sample) 
-that shows how django bootstrap icons work on Github
+that shows how django bootstrap icons work on GitHub
 
 
 ## License
@@ -107,7 +107,16 @@ This project is licensed under the MIT License - see the
 
 * Thanks to [bootstrap Icons](https://icons.getbootstrap.com)!
 
-Releases
---------
+## Releases
 
 * django-bootstrap-icons 0.5.0 (April 2021): Refactor to use bootstrap svg icons from CDN
+
+## Migration
+
+If you had installed an earlier version of this package, please remove the 
+
+```
+{% include_bootstrap_icons %}
+```
+
+template tag, since this is no longer available.
