@@ -68,7 +68,10 @@ def custom_icon(icon_name, size=None, color=None, extra_classes=None):
         return ''
 
     icon_path = get_static(icon_name)
-    content = xml.dom.minidom.parse(icon_path)
+    try:
+        content = xml.dom.minidom.parse(icon_path)
+    except FileNotFoundError:
+        return f"Icon <{icon_path}> does not exist"
     return format_html(render_svg(content, size, color, extra_classes))
 
 
