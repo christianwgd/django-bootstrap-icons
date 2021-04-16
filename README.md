@@ -110,6 +110,7 @@ This project is licensed under the MIT License - see the
 ## Releases
 
 * django-bootstrap-icons 0.5.0 (April 2021): Refactor to use bootstrap svg icons from CDN
+* django-bootstrap-icons 0.5.1 (April 2021): Fix incorrect template tag names in documentation
 
 ## Migration
 
