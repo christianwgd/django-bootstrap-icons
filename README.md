@@ -30,7 +30,7 @@ CDN link to the bootstrap icons web font. If you have your own source for the
 web font, feel free to opt out of this tag!
 
 ```
-{% load django_bootstrap_icons %}
+{% load bootstrap_icons %}
 ```
 
 Then, add an icon with the following tag. Give the name icon's name as the 
