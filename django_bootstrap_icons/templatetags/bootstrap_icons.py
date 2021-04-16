@@ -1,7 +1,7 @@
 """ django bootstrap icons templatetags """
 import os
-import requests
 import xml.dom.minidom
+import requests
 
 from django.conf import settings
 from django.contrib.staticfiles.finders import find
@@ -14,6 +14,11 @@ register = Library()
 
 
 def get_static(icon_name):
+    """
+    Get the correct path in development and production
+    :param icon_name:
+    :return: icon path
+    """
     custom_path = getattr(
         settings,
         'BS_ICONS_CUSTOM_PATH',
@@ -23,13 +28,20 @@ def get_static(icon_name):
         return os.path.join(
             find(custom_path), '.'.join((icon_name, 'svg'))
         )
-    else:
-        return os.path.sjoin(
-            settings.STATIC_ROOT, custom_path, '.'.join((icon_name, 'svg'))
-        )
+    return os.path.join(
+        settings.STATIC_ROOT, custom_path, '.'.join((icon_name, 'svg'))
+    )
 
 
 def render_svg(content, size, color, extra_classes):
+    """
+    Render the svg with custom properties
+    :param content:
+    :param size:
+    :param color:
+    :param extra_classes:
+    :return:
+    """
     svg = content.getElementsByTagName('svg')
 
     if extra_classes:
