@@ -1,26 +1,23 @@
 # django-bootstrap-icons
 
-> At the end this package doesn't seem very useful. It's more for me learning about Github action workflow and 
-> automated upload to pypi.org.
-> 
-> If you really want to use bootstrap icons font simply add their CDN to your templates and insert the icon tags in 
-> your HTML: ```<i class="bi-alarm"></i>```
-> 
-> This repo won't be updated unless somone finds a useful scenario ;-)
+![PyPI](https://img.shields.io/pypi/v/django-bootstrap-icons)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/django-bootstrap-icons)
 
-A quick way to add [Bootstrap Icons](https://icons.getbootstrap.com) with Django template tags.
+A quick way to add [Bootstrap Icons](https://icons.getbootstrap.com) with Django 
+template tags.
 
-This package contains Bootstrap Icons v1.2.2 (Jan 2021). 
-
-The icons are embedded from the icon font. If you'd rather like to use the svg images try this one: [django_bs_icons](https://github.com/mattburlage/django_bs_icons). 
+Embed bootstrap svg icons in your django templates with the possibility for styling 
+and sizing.
 
 ## Installing
 
-`django-bootstrap-icons` can be found on pypi. Run `pip install django-bootstrap-icons` to install the package on your machine.
+`django-bootstrap-icons` can be found on pypi. Run `pip install django-bootstrap-icons` 
+to install the package on your machine.
 
 ## Getting Started
 
-Using django-bootstrap-icons is easy. First, install the `django_material_icons` Django app in your settings file.
+Using django-bootstrap-icons is easy. First, install the `django_material_icons` 
+Django app in your settings file.
 
 ```
 INSTALLED_APPS = [
@@ -28,60 +25,89 @@ INSTALLED_APPS = [
 ]
 ```
 
-Also, include the following tags in your base template file. It includes the CDN link to the bootstrap icons web font. If you have your own source for the web font, feel free to opt out of this tag!
+Also, include the following tags in your base template file. It includes the 
+CDN link to the bootstrap icons web font. If you have your own source for the 
+web font, feel free to opt out of this tag!
+
 ```
 {% load django_bootstrap_icons %}
-
-{% include_bootstrap_icons %}
 ```
 
-Then, add an icon with the following tag. Give the name icon's name as the first parameter, and that's all that's required.
-```
-{% load django_bootstrap_icons %}
+Then, add an icon with the following tag. Give the name icon's name as the 
+first parameter, and that's all that's required.
 
-{% bs_icon 'alarm' %}
+```
+{% bs_icon_svg 'alarm' %}
+```
+
+### Icon sizes
+
+You can size the icons by setting the size parameter:
+
+```
+{% bs_icon_svg 'alarm' size='1.5rem' %}
 ```
 
 ### Icon styling
 
-To style the icons, you can add extra css classes:
+Set the color of an icon by specifying the color parameter:
 
 ```
-{% bs_icon 'alarm' extra_classes='your-class-name' %}
+{% bs_icon_svg 'alarm' color='red' %}
 ```
 
-Sizing classes are included in the bootstrap icon css:
-
-![Icon sizes](https://github.com/christianwgd/django-bootstrap-icons/blob/master/django_bootstrap_icons/static/img/icon-sizes.png "Icon sizes")
+For further styling, you can add extra css classes:
 
 ```
-{% bs_icon 'alarm' extra_classes='bi-xs' %}
-{% bs_icon 'alarm' extra_classes='bi-sm' %}
-{% bs_icon 'alarm' extra_classes='bi-2x' %}
-{% bs_icon 'alarm' extra_classes='bi-3x' %}
-{% bs_icon 'alarm' extra_classes='bi-5x' %}
-{% bs_icon 'alarm' extra_classes='bi-7x' %}
-{% bs_icon 'alarm' extra_classes='bi-10x' %}
+{% custom_svg 'your-custom-svg-name' %}
 ```
 
-If you have bootstrap css included, you can use the bootstrap color classes:
 
-![Icon colors](https://github.com/christianwgd/django-bootstrap-icons/blob/master/django_bootstrap_icons/static/img/icon-colors.png "Icon colors")
+### Custom icons
+There's a template tag for your custom icons. Store the custom icons in some 
+static directory. SET the BS_ICON_CUSTOM_PATH setting to point to that static directory.
 
 ```
-{% bs_icon 'alarm' extra_classes='text-success' %}
-{% bs_icon 'alarm' extra_classes='text-info' %}
-{% bs_icon 'alarm' extra_classes='text-warning' %}
-{% bs_icon 'alarm' extra_classes='text-danger' %}
-{% bs_icon 'alarm' extra_classes='text-primary' %}
-{% bs_icon 'alarm' extra_classes='text-secondary' %}
+{% bs_icon_svg 'alarm' extra_classes='your-class-name' %}
 ```
+
+The custom template accepts the same parameter as the bootstrap icon template.
+
+## Configuration
+
+You can specify the source from which the icons are loaded:
+
+```
+BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/'
+```
+
+BS_ICONS_BASE_URL defaults to the latest boostrap-icons CDN that was available 
+when releasing this package. Change the URL to use an older or newer one.
+
+To add custom icons to your app you need to set the path where these can be found. 
+The default setting is *custom-icons*, so you would add your icons 
+to */your-app/static/custom-icons/*.
+
+```
+BS_ICONS_CUSTOM_PATH = 'custom-icons'
+```
+
+## Example App
+
+There's an [Example App](https://github.com/christianwgd/django-bootstrap-icons-sample) 
+that shows how django bootstrap icons work on Github
+
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/christianwgd/django-bootstrap-icons/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the 
+[LICENSE](https://github.com/christianwgd/django-bootstrap-icons/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
-* Thanks bootstrap Icons!
-* Thanks to **Doug Dresser** [dwdresser](https://github.com/dwdresser) for the django_material_icon app that i used as a template
+* Thanks to [bootstrap Icons](https://icons.getbootstrap.com)!
+
+Releases
+--------
+
+* django-bootstrap-icons 0.5.0 (April 2021): Refactor to use bootstrap svg icons from CDN
