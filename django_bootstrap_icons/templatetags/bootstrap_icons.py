@@ -29,7 +29,7 @@ def get_static(icon_name):
 
 
 @register.simple_tag
-def custom_svg(icon_name, size=None, color=None, extra_classes=None):
+def custom_icon(icon_name, size=None, color=None, extra_classes=None):
     if icon_name is None:
         return ''
     try:
@@ -55,15 +55,13 @@ def custom_svg(icon_name, size=None, color=None, extra_classes=None):
 
 
 @register.simple_tag
-def bs_icon_svg(icon_name, size=None, color=None, extra_classes=None):
+def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     """
         Template tag for rendering a bootstrap icon
         :param str icon_name: Name of bootstrap icon to render
         :param str size: size of bootstrap icon to render
         :param str color: color of bootstrap icon to render
         :param str extra_classes: String of classes to add to icon
-        :param boolean custom: True if this is a custom icon added by you
-               make sure you have added the BS_ICONS_CUSTOM_PATH in settings.py
         """
     if icon_name is None:
         return ''
