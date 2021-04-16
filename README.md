@@ -37,7 +37,7 @@ Then, add an icon with the following tag. Give the name icon's name as the
 first parameter, and that's all that's required.
 
 ```
-{% bs_icon_svg 'alarm' %}
+{% bs_icon 'alarm' %}
 ```
 
 ### Icon sizes
@@ -45,7 +45,7 @@ first parameter, and that's all that's required.
 You can size the icons by setting the size parameter:
 
 ```
-{% bs_icon_svg 'alarm' size='1.5rem' %}
+{% bs_icon 'alarm' size='1.5rem' %}
 ```
 
 ### Icon styling
@@ -53,13 +53,13 @@ You can size the icons by setting the size parameter:
 Set the color of an icon by specifying the color parameter:
 
 ```
-{% bs_icon_svg 'alarm' color='red' %}
+{% bs_icon 'alarm' color='red' %}
 ```
 
 For further styling, you can add extra css classes:
 
 ```
-{% custom_svg 'your-custom-svg-name' %}
+{% custom_icon 'your-custom-svg-name' %}
 ```
 
 
@@ -68,7 +68,7 @@ There's a template tag for your custom icons. Store the custom icons in some
 static directory. SET the BS_ICON_CUSTOM_PATH setting to point to that static directory.
 
 ```
-{% bs_icon_svg 'alarm' extra_classes='your-class-name' %}
+{% bs_icon 'alarm' extra_classes='your-class-name' %}
 ```
 
 The custom template accepts the same parameter as the bootstrap icon template.
