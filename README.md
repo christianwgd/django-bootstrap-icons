@@ -97,11 +97,14 @@ BS_ICONS_CUSTOM_PATH = 'custom-icons'
 There's an [Example App](https://github.com/christianwgd/django-bootstrap-icons-sample) 
 that shows how django bootstrap icons work on GitHub
 
+Output of the example app:
+![example](https://github.com/christianwgd/django-bootstrap-icons/blob/master/sample-app-result.png "Sample App Output")
+
 
 ## License
 
 This project is licensed under the MIT License - see the 
-[LICENSE](https://github.com/christianwgd/django-bootstrap-icons/blob/master/LICENSE) file for details
+[LICENSE](https://github.com/christianwgd/django-bootstrap-icons/blob/master/LICENCE) file for details
 
 ## Acknowledgments
 
