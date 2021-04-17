@@ -57,19 +57,52 @@ Set the color of an icon by specifying the color parameter:
 For further styling, you can add extra css classes:
 
 ```
-{% custom_icon 'your-custom-svg-name' %}
+{% bs_icon 'alarm' extra_classes="your-classname1 your-classname2" %}
 ```
 
+#### Vertical alignment
+
+By default all sgv bootstrap icons are vertical aligned to the middle. Sometimes this is 
+not appropriate, especially when rendering beside text. To align with text *django-bootstrap-icons*
+provides some css classes to set the desired vertical alignment. 
+
+Include the css file into your template
+
+```
+<link rel="stylesheet" href="{% static 'bootstrap_icons/css/bootstrap_icons.css' %}">
+```
+
+and add the class to the *extra_classes* parameter
+
+```
+{% bs_icon 'alarm' extra_classes="bi-valign-bottom" %}
+```
+
+The following classes are available:
+
+```
+.bi-valign-default /* This is a compromise also provided by bootstrap
+                     for the icon font. The value is vertical-align: -.125em; 
+                     (see https://github.com/twbs/icons/issues/601 for details) */
+.bi-valign-middle /* this is the real default, so you may not need it */
+.bi-valign-bottom
+.bi-valign-text-top
+.bi-valign-text-bottom
+```
 
 ### Custom icons
 There's a template tag for your custom icons. Store the custom icons in some 
 static directory. SET the BS_ICON_CUSTOM_PATH setting to point to that static directory.
 
 ```
-{% bs_icon 'alarm' extra_classes='your-class-name' %}
+{% custom_icon 'your-custom-svg-name' %}
 ```
 
 The custom template accepts the same parameter as the bootstrap icon template.
+
+In fact you could download the bootstrap icons from bootstrap, store them in 
+your static files and use them with the custom_icon template tag. This would 
+avoid the use of CDN completely. 
 
 ## Configuration
 
@@ -113,6 +146,9 @@ This project is licensed under the MIT License - see the
 * django-bootstrap-icons 0.5.0 (April 2021): Refactor to use bootstrap svg icons from CDN
 * django-bootstrap-icons 0.5.1 (April 2021): Fix incorrect template tag names in documentation
 * django-bootstrap-icons 0.5.2 (April 2021): Handle error if custom icon svg does not exist
+* django-bootstrap-icons 0.5.3 (April 2021): Add css to specify vertical alignment of sgv icons
+* django-bootstrap-icons 0.5.4 (April 2021): Fix some documentation issues, no need to install 
+  since it affects only documentation
 
 ## Migration
 
