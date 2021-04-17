@@ -43,7 +43,7 @@ first parameter, and that's all that's required.
 You can size the icons by setting the size parameter:
 
 ```
-{% bs_icon 'alarm' size='1.5rem' %}
+{% bs_icon 'alarm' size='1.5em' %}
 ```
 
 ### Icon styling
