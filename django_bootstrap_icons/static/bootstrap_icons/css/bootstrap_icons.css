@@ -1,0 +1,23 @@
+.bi-valign-default {
+    vertical-align: -.125em;
+}
+
+.bi-valign-top {
+    vertical-align: top;
+}
+
+.bi-valign-middle {
+    vertical-align: middle;
+}
+
+.bi-valign-bottom {
+    vertical-align: bottom;
+}
+
+.bi-valign-text-top {
+    vertical-align: text-top;
+}
+
+.bi-valign-text-bottom {
+    vertical-align: text-bottom;
+}

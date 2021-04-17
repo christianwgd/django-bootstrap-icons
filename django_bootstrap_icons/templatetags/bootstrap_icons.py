@@ -95,7 +95,9 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     icon_path = os.path.join(
         base_url, 'icons', '.'.join((icon_name, 'svg'))
     )
-
     resp = requests.get(icon_path)
+    if resp.status_code >= 400:
+        return f"Icon <{icon_path}> does not exist"
+
     content = xml.dom.minidom.parseString(resp.text)
     return format_html(render_svg(content, size, color, extra_classes))
