@@ -92,7 +92,7 @@ The following classes are available:
 
 ### Custom icons
 There's a template tag for your custom icons. Store the custom icons in some 
-static directory. SET the BS_ICON_CUSTOM_PATH setting to point to that static directory.
+static directory. SET the BS_ICONS_CUSTOM_PATH setting to point to that static directory.
 
 ```
 {% custom_icon 'your-custom-svg-name' %}
