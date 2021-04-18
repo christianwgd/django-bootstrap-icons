@@ -104,6 +104,36 @@ In fact you could download the bootstrap icons from bootstrap, store them in
 your static files and use them with the custom_icon template tag. This would 
 avoid the use of CDN completely. 
 
+### Material Design Icons
+
+*django-bootstrap-icons* works fine with Material Design Icons. There is a template
+tag for MDI:
+
+```
+{% md_icon 'alarm' %}
+```
+
+Material Design Icons get some additional css classes *mdi* and *mdi-<icon-name>* to 
+style them globally.
+
+To use Material Design Icons side-by-side with bootstrap icons *django-bootstrap-icons* 
+makes some adjustments in rendering the icons:
+
+* The base size of Material Design Icons is larger than the size of bootstrap icons. 
+  For the default size (no size attribute given), *django-bootstrap* icons are resized.
+  If you want to have the same size as Bootstrap Icons, set them to a size factor of 1.25.
+  If Bootstrap Icon is of size 2em, set Material Icon to 2.5em. (Although the base size 
+  in mdi svgs is 24 the real size of the icon is 20 because of some empty space, that
+  surrounds the icons).
+  
+* Because of that empty white space of the MDI (sort of some internal "padding" in svg)
+  you need to include the django-bootstrap-icons css file to make some adjustments to 
+  the alignment.
+
+```
+<link rel="stylesheet" href="{% static 'bootstrap_icons/css/bootstrap_icons.css' %}">
+```
+
 ## Configuration
 
 You can specify the source from which the icons are loaded:
@@ -123,6 +153,16 @@ to */your-app/static/custom-icons/*.
 BS_ICONS_CUSTOM_PATH = 'custom-icons'
 ```
 
+### Configure Material Design Icons
+
+Material Desing Icons are loaded from the default URL:
+
+```
+MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@5.9.55/'
+```
+
+You can change it to your desired location by overriding this setting.        
+
 ## Example App
 
 There's an [Example App](https://github.com/christianwgd/django-bootstrap-icons-sample) 
@@ -139,7 +179,8 @@ This project is licensed under the MIT License - see the
 
 ## Acknowledgments
 
-* Thanks to [bootstrap Icons](https://icons.getbootstrap.com)!
+* Thanks to [Bootstrap Icons](https://icons.getbootstrap.com)!
+* Thanks to [Material Design Icons](https://google.github.io/material-design-icons/)!
 
 ## Releases
 
@@ -149,6 +190,8 @@ This project is licensed under the MIT License - see the
 * django-bootstrap-icons 0.5.3 (April 2021): Add css to specify vertical alignment of sgv icons
 * django-bootstrap-icons 0.5.4 (April 2021): Fix some documentation issues, no need to install 
   since it affects only documentation
+* django-bootstrap-icons 0.5.5 (April 2021): Add support for Material Design Icons, no need to install 
+  as long as you don't want to use MDI.
 
 ## Migration
 

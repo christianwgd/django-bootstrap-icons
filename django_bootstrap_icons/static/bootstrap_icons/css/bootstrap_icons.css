@@ -21,3 +21,17 @@
 .bi-valign-text-bottom {
     vertical-align: text-bottom;
 }
+
+/* Material Design Icons have some internal
+   "padding" in the svg, so we need some
+   alignment adjustments of md icons */
+.mdi.bi-valign-default,
+.mdi.bi-valign-bottom,
+.mdi.bi-valign-text-bottom {
+    transform:translateY(10%);
+}
+
+.mdi.bi-valign-top,
+.mdi.bi-valign-text-top {
+    transform:translateY(-10%);
+}
