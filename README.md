@@ -139,7 +139,7 @@ makes some adjustments in rendering the icons:
 You can specify the source from which the icons are loaded:
 
 ```
-BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/'
+BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/'
 ```
 
 BS_ICONS_BASE_URL defaults to the latest boostrap-icons CDN that was available 
@@ -192,6 +192,7 @@ This project is licensed under the MIT License - see the
   since it affects only documentation
 * django-bootstrap-icons 0.5.5 (April 2021): Add support for Material Design Icons, no need to install 
   as long as you don't want to use MDI.
+* django-bootstrap-icons 0.6.0 (Mai 2021): Update default bootstrap icons CDN to version 1.5.0
 
 ## Migration
 

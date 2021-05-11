@@ -97,7 +97,7 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     base_url = getattr(
         settings,
         'BS_ICONS_BASE_URL',
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/'
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/',
     )
     icon_path = os.path.join(
         base_url, 'icons', '.'.join((icon_name, 'svg'))
