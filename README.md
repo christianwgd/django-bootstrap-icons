@@ -193,6 +193,7 @@ This project is licensed under the MIT License - see the
 * django-bootstrap-icons 0.5.5 (April 2021): Add support for Material Design Icons, no need to install 
   as long as you don't want to use MDI.
 * django-bootstrap-icons 0.6.0 (Mai 2021): Update default bootstrap icons CDN to version 1.5.0
+* django-bootstrap-icons 0.6.1 (June 2021): Fix path building on windows (#3)
 
 ## Migration
 
