@@ -99,8 +99,7 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
         'BS_ICONS_BASE_URL',
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/',
     )
-    icon_path = os.path.join(
-        base_url, 'icons', '.'.join((icon_name, 'svg'))
+    icon_path = f'{base_url}/icons/{icon_name}.svg'
     )
     resp = requests.get(icon_path)
     if resp.status_code >= 400:
@@ -127,8 +126,7 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
         'MD_ICONS_BASE_URL',
         'https://cdn.jsdelivr.net/npm/@mdi/svg@5.9.55/'
     )
-    icon_path = os.path.join(
-        base_url, 'svg', '.'.join((icon_name, 'svg'))
+    icon_path = f'{base_url}/svg/{icon_name}.svg'
     )
     resp = requests.get(icon_path)
     if resp.status_code >= 400:
