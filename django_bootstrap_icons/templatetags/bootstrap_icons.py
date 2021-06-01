@@ -100,7 +100,6 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/',
     )
     icon_path = f'{base_url}/icons/{icon_name}.svg'
-    )
     resp = requests.get(icon_path)
     if resp.status_code >= 400:
         return f"Icon <{icon_path}> does not exist"
@@ -127,7 +126,6 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
         'https://cdn.jsdelivr.net/npm/@mdi/svg@5.9.55/'
     )
     icon_path = f'{base_url}/svg/{icon_name}.svg'
-    )
     resp = requests.get(icon_path)
     if resp.status_code >= 400:
         return f"Icon <{icon_path}> does not exist"
