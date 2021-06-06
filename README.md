@@ -161,7 +161,18 @@ Material Desing Icons are loaded from the default URL:
 MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@5.9.55/'
 ```
 
-You can change it to your desired location by overriding this setting.        
+You can change it to your desired location by overriding this setting.       
+
+### Configure icon cache
+
+To avoid rendering icons multiple times, configure the icon cache directory:
+
+```
+BS_ICONS_CACHE = os.path.join(STATIC_ROOT, 'icon_cache')
+```
+
+This will ensure that icons will be rendered only once with their individual svg properties 
+and stored to a local file. On each subsequent use the icon will be simply loaded from file.
 
 ## Example App
 
@@ -194,8 +205,9 @@ This project is licensed under the MIT License - see the
   as long as you don't want to use MDI.
 * django-bootstrap-icons 0.6.0 (Mai 2021): Update default bootstrap icons CDN to version 1.5.0
 * django-bootstrap-icons 0.6.1 (June 2021): Fix path building on windows (#3)
+* django-bootstrap-icons 0.6.2 (June 2021): Add icon cache to avoid multiple redering of same icon (#5)
 
-## Migration
+## Migration from 0.2
 
 If you had installed an earlier version of this package, you have to change some things:
 
