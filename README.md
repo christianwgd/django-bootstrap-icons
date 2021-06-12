@@ -174,6 +174,26 @@ BS_ICONS_CACHE = os.path.join(STATIC_ROOT, 'icon_cache')
 This will ensure that icons will be rendered only once with their individual svg properties 
 and stored to a local file. On each subsequent use the icon will be simply loaded from file.
 
+### Configure icon not found return
+
+In case icons are not found you can configure, what to display:
+
+```
+BS_ICONS_NOT_FOUND = f"Icon <{icon_path}> does not exist"
+```
+
+This shows the error message if you for example misspelled an icon name.
+
+If you're running your app offline you may want to display some value that has the same size as the icon:
+
+```
+BS_ICONS_NOT_FOUND = '<?xml version="1.0" ?>\
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">\
+	<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>\
+	<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>\
+</svg>'
+```
+
 ## Example App
 
 There's an [Example App](https://github.com/christianwgd/django-bootstrap-icons-sample) 
@@ -206,6 +226,7 @@ This project is licensed under the MIT License - see the
 * django-bootstrap-icons 0.6.0 (Mai 2021): Update default bootstrap icons CDN to version 1.5.0
 * django-bootstrap-icons 0.6.1 (June 2021): Fix path building on windows (#3)
 * django-bootstrap-icons 0.6.2 (June 2021): Add icon cache to avoid multiple redering of same icon (#5)
+* django-bootstrap-icons 0.6.3 (June 2021): Add a configuration option what to display if icons are not found.
 
 ## Migration from 0.2
 

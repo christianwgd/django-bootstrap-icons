@@ -107,15 +107,26 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
             return open(cache_file, 'r').read()
 
     # cached icon doesn't exist or no cache configured, create and return icon
-    resp = requests.get(icon_path)
-    if resp.status_code >= 400:
-        return f"Icon <{icon_path}> does not exist"
-
-    content = xml.dom.minidom.parseString(resp.text)
-    svg = render_svg(content, size, color, extra_classes)
-    # if cache configured write icon to cache
-    if cache_path and cache_file:
-        open(cache_file, 'w').write(svg)
+    try:
+        resp = requests.get(icon_path)
+        if resp.status_code >= 400:
+            # return f"Icon <{icon_path}> does not exist"
+            return getattr(
+                settings,
+                'BS_ICONS_NOT_FOUND',
+                f"Icon <{icon_path}> does not exist"
+            )
+        content = xml.dom.minidom.parseString(resp.text)
+        svg = render_svg(content, size, color, extra_classes)
+        # if cache configured write icon to cache
+        if cache_path and cache_file:
+            open(cache_file, 'w').write(svg)
+    except requests.ConnectionError:
+        return getattr(
+            settings,
+            'BS_ICONS_NOT_FOUND',
+            f"Icon <{icon_path}> does not exist"
+        )
     return svg
 
 
