@@ -3,6 +3,8 @@ import os
 import xml.dom.minidom
 import requests
 
+from contextlib import suppress
+
 from django.conf import settings
 from django.contrib.staticfiles.finders import find
 # noinspection PyProtectedMember
@@ -81,7 +83,7 @@ def custom_icon(icon_name, size=None, color=None, extra_classes=None):
     return format_html(render_svg(content, size, color, extra_classes))
 
 
-def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
+def icon(icon_path, icon_name, size=None, color=None, extra_classes=None, alt=None):
     """
     Manage caching of bootstrap icons
     :param str icon_path: icon path given by CDN
@@ -89,6 +91,7 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
     :param str size: size of custom icon to render
     :param str color: color of custom icon to render
     :param str extra_classes: String of classes to add to icon
+    :param str alt: String to return if the icon fails to load
     """
     cache_path = getattr(
         settings,
@@ -107,9 +110,11 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
             return open(cache_file, 'r').read()
 
     # cached icon doesn't exist or no cache configured, create and return icon
-    resp = requests.get(icon_path)
-    if resp.status_code >= 400:
-        return f"Icon <{icon_path}> does not exist"
+    resp = None
+    with suppress(requests.exceptions.ConnectionError):
+        resp = requests.get(icon_path)
+    if not resp or resp.status_code >= 400:
+        return f"Icon <{icon_path}> does not exist" if alt is None else alt
 
     content = xml.dom.minidom.parseString(resp.text)
     svg = render_svg(content, size, color, extra_classes)
@@ -120,13 +125,14 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
 
 
 @register.simple_tag
-def bs_icon(icon_name, size=None, color=None, extra_classes=None):
+def bs_icon(icon_name, size=None, color=None, extra_classes=None, alt=None):
     """
     Template tag for rendering a bootstrap icon
     :param str icon_name: Name of bootstrap icon to render
     :param str size: size of bootstrap icon to render
     :param str color: color of bootstrap icon to render
     :param str extra_classes: String of classes to add to icon
+    :param str alt: String to show if the icon fails to load
     """
     if icon_name is None:
         return ''
@@ -138,19 +144,20 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     )
     icon_path = f'{base_url}icons/{icon_name}.svg'
 
-    svg = icon(icon_path, icon_name, size, color, extra_classes)
+    svg = icon(icon_path, icon_name, size, color, extra_classes, alt)
     resp = format_html(svg)
     return resp
 
 
 @register.simple_tag
-def md_icon(icon_name, size=None, color=None, extra_classes=None):
+def md_icon(icon_name, size=None, color=None, extra_classes=None, alt=None):
     """
     Template tag for rendering a material design icon
     :param str icon_name: Name of bootstrap icon to render
     :param str size: size of bootstrap icon to render
     :param str color: color of bootstrap icon to render
     :param str extra_classes: String of classes to add to icon
+    :param str alt: String to show if the icon fails to load
     """
     if icon_name is None:
         return ''
@@ -172,6 +179,6 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
     )
     icon_path = f'{base_url}svg/{icon_name}.svg'
 
-    svg = icon(icon_path, icon_name, size, color, extra_classes)
+    svg = icon(icon_path, icon_name, size, color, extra_classes, alt)
     resp = format_html(svg)
     return resp
