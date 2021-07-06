@@ -6,6 +6,7 @@ import requests
 from django.conf import settings
 from django.contrib.staticfiles.finders import find
 # noinspection PyProtectedMember
+from django.core.exceptions import ImproperlyConfigured
 from django.template import Library
 from django.utils.html import format_html
 
@@ -18,17 +19,24 @@ def get_static(icon_name):
     :param icon_name:
     :return: icon path
     """
-    custom_path = getattr(
+    custom_dir = getattr(
         settings,
         'BS_ICONS_CUSTOM_PATH',
         'custom-icons'
     )
+
     if settings.DEBUG:
-        return os.path.join(
-            find(custom_path), '.'.join((icon_name, 'svg'))
-        )
+        custom_path = find(custom_dir)
+        if not custom_path:
+            raise ImproperlyConfigured("BS_ICONS_CUSTOM_PATH does not exist.")
+    else:
+        custom_path = os.path.join(settings.STATIC_ROOT, custom_dir)
+
+    if not os.path.exists(custom_path):
+        raise ImproperlyConfigured("BS_ICONS_CUSTOM_PATH does not exist.")
+
     return os.path.join(
-        settings.STATIC_ROOT, custom_path, '.'.join((icon_name, 'svg'))
+        custom_path, '.'.join((icon_name, 'svg'))
     )
 
 
