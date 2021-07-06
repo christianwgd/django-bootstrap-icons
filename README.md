@@ -227,6 +227,7 @@ This project is licensed under the MIT License - see the
 * django-bootstrap-icons 0.6.1 (June 2021): Fix path building on windows (#3)
 * django-bootstrap-icons 0.6.2 (June 2021): Add icon cache to avoid multiple redering of same icon (#5)
 * django-bootstrap-icons 0.6.3 (June 2021): Add a configuration option what to display if icons are not found.
+* django-bootstrap-icons 0.6.4 (July 2021): Improve error handling for custom icons
 
 ## Migration from 0.2
 
