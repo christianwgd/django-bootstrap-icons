@@ -112,7 +112,7 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
         cache_file = os.path.join(cache_path, cache_name)
         if os.path.exists(cache_file):
             # icon exists in cache, use that
-            with open(cache_file, 'r') as icon_file:
+            with open(cache_file, 'r', encoding="utf-8") as icon_file:
                 return icon_file.read()
 
     # cached icon doesn't exist or no cache configured, create and return icon
@@ -129,7 +129,7 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
         svg = render_svg(content, size, color, extra_classes)
         # if cache configured write icon to cache
         if cache_path and cache_file:
-            with open(cache_file, 'w') as icon_file:
+            with open(cache_file, 'w', encoding="utf-8") as icon_file:
                 icon_file.write(svg)
     except requests.ConnectionError:
         return getattr(
