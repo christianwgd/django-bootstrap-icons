@@ -155,7 +155,7 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     base_url = getattr(
         settings,
         'BS_ICONS_BASE_URL',
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/',
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/',
     )
     icon_path = f'{base_url}icons/{icon_name}.svg'
 
@@ -189,7 +189,7 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
     base_url = getattr(
         settings,
         'MD_ICONS_BASE_URL',
-        'https://cdn.jsdelivr.net/npm/@mdi/svg@5.9.55/'
+        'https://cdn.jsdelivr.net/npm/@mdi/svg@6.4.95/'
     )
     icon_path = f'{base_url}svg/{icon_name}.svg'
 
