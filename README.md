@@ -165,13 +165,13 @@ You can change it to your desired location by overriding this setting.
 
 ### Configure icon cache
 
-To avoid rendering icons multiple times, configure the icon cache directory:
+To avoid fetching icons multiple times, configure the icon cache directory:
 
 ```
 BS_ICONS_CACHE = os.path.join(STATIC_ROOT, 'icon_cache')
 ```
 
-This will ensure that icons will be rendered only once with their individual svg properties 
+This will ensure that icons will be loaded only once with their individual svg properties 
 and stored to a local file. On each subsequent use the icon will be simply loaded from file.
 
 ### Configure icon not found return
