@@ -16,7 +16,7 @@ to install the package on your machine.
 
 ## Getting Started
 
-Using django-bootstrap-icons is easy. First, install the `django_material_icons` 
+Using django-bootstrap-icons is easy. First, install the `django_bootstrap_icons` 
 Django app in your settings file.
 
 ```
