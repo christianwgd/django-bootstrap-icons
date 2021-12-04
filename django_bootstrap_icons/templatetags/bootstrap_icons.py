@@ -155,7 +155,7 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     base_url = getattr(
         settings,
         'BS_ICONS_BASE_URL',
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/',
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/',
     )
     icon_path = f'{base_url}icons/{icon_name}.svg'
 
