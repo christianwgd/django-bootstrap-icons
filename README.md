@@ -89,7 +89,7 @@ The following classes are available:
 .bi-valign-text-top
 .bi-valign-text-bottom
 ```
-
+ 
 ### Custom icons
 There's a template tag for your custom icons. Store the custom icons in some 
 static directory. SET the BS_ICONS_CUSTOM_PATH setting to point to that static directory.

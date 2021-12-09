@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% load i18n static bootstrap4 bootstrap_icons %}
+
+{% block bootstrap4_extra_head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'bootstrap_icons/css/bootstrap_icons.css' %}">
+<style>
+    body { padding-bottom: 5rem;}
+    .my-hover:hover { color: red; }
+    .my-background {
+        color: white;
+        background-color: lightgray;
+        padding: 5px;
+        border: 1px solid #333;
+        border-radius: 20%;
+    }
+    p {border-top: 1px solid gray;border-bottom: 1px solid gray;}
+</style>
+{% endblock %}
+
+{% block page_title %}Bootstrap icon samples{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Icon</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{% bs_icon 'tiktok' %}</td>
+                    <td><pre>{% verbatim %}{% bs_icon 'alarm' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% bs_icon 'calendar-date' %}</td>
+                    <td><pre>{% verbatim %}{% bs_icon 'calendar-date' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% bs_icon 'alarm' color='red' %}</td>
+                    <td><pre>{% verbatim %}{% bs_icon 'alarm' color='red' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% bs_icon 'alarm' size='1.5em' %}</td>
+                    <td><pre>{% verbatim %}{% bs_icon 'alarm' size='1.5em' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% bs_icon 'alarm' size='20px' color='#7700CC' %}</td>
+                    <td><pre>{% verbatim %}{% bs_icon 'alarm' size='20px' color='#7700CC' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% bs_icon 'alarm' size='3em' extra_classes='my-hover my-background' %}</td>
+                    <td>
+                        <pre>
+{% verbatim %}{% bs_icon size='2em' extra_classes='my-hover my-background' %}
+css:
+.my-hover:hover { color: red; }
+.my-background {
+    color: white;
+    background-color: lightgray;
+    padding: 5px;t
+    border: 1px solid #333;
+    border-radius: 20%;
+}
+                        {% endverbatim %}
+                        </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{% custom_icon 'paper-plane' size='1.5em' color='blue' %}</td>
+                    <td><pre>{% verbatim %}{% custom_icon 'paper-plane' size='1.5em' color='blue' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>
+                        {% bs_icon 'alarm' extra_classes="bi-valign-default" %}
+                        {% bs_icon 'alarm' extra_classes="bi-valign-top" %}
+                        {% bs_icon 'alarm' extra_classes="bi-valign-middle" %}
+                        {% bs_icon 'alarm' extra_classes="bi-valign-bottom" %}
+                        {% bs_icon 'alarm' extra_classes="bi-valign-text-top" %}
+                        {% bs_icon 'alarm' extra_classes="bi-valign-text-bottom" %}
+                    </td>
+                    <td><pre>{% verbatim %}Alignement extra_classes: bi-valign-default bi-valign-middle bi-valign-bottom
+                          bi-valign-text-top bi-valign-text-bottom{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% bs_icon 'alarm' size='1.5em' extra_classes="text-success bg-warning" %}</td>
+                    <td><pre>{% verbatim %}{% bs_icon 'alarm' size='1.5em' extra_classes="text-success bg-warning" %}{% endverbatim %}</pre></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<h4>There are differnt alingments for django-bootstrap-icons</h4>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-default" %} align -.125 and some text
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-middle" %} align middle and some text
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-bottom" %} align bottom and some text
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-text-top" %} align text-top and some text
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-text-bottom" %} align text-bottom and some text
+</p>
+
+<h4>Material Design Icons SVG work fine with django-bootstrap-icons</h4>
+<div class="row">
+    <div class="col-12">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Icon</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{% md_icon 'alarm' %}</td>
+                    <td><pre>{% verbatim %}{% md_icon 'alarm' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% md_icon 'calendar' %}</td>
+                    <td><pre>{% verbatim %}{% md_icon 'calendar' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% md_icon 'alarm' color='red' %}</td>
+                    <td><pre>{% verbatim %}{% md_icon 'alarm' color='red' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% md_icon 'alarm' size='1.5em' %}</td>
+                    <td><pre>{% verbatim %}{% md_icon 'alarm' size='1.5em' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% md_icon 'alarm' size='20px' color='#7700CC' %}</td>
+                    <td><pre>{% verbatim %}{% md_icon 'alarm' size='20px' color='#7700CC' %}{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% md_icon 'alarm' size='3em' extra_classes='my-hover my-background' %}</td>
+                    <td>
+                        <pre>
+{% verbatim %}{% bs_icon size='2em' extra_classes='my-hover my-background' %}
+css:
+.my-hover:hover { color: red; }
+.my-background {
+    color: white;
+    background-color: lightgray;
+    padding: 5px;t
+    border: 1px solid #333;
+    border-radius: 20%;
+}
+                        {% endverbatim %}
+                        </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% md_icon 'alarm' extra_classes="bi-valign-default" %}
+                        {% md_icon 'alarm' extra_classes="bi-valign-top" %}
+                        {% md_icon 'alarm' extra_classes="bi-valign-middle" %}
+                        {% md_icon 'alarm' extra_classes="bi-valign-bottom" %}
+                        {% md_icon 'alarm' extra_classes="bi-valign-text-top" %}
+                        {% md_icon 'alarm' extra_classes="bi-valign-text-bottom" %}
+                    </td>
+                    <td><pre>{% verbatim %}Alignement extra_classes: bi-valign-default bi-valign-middle bi-valign-bottom
+                          bi-valign-text-top bi-valign-text-bottom{% endverbatim %}</pre></td>
+                </tr>
+                <tr>
+                    <td>{% md_icon 'alarm' size='1.5em' extra_classes="text-success bg-warning" %}</td>
+                    <td><pre>{% verbatim %}{% md_icon 'alarm' size='1.5em' extra_classes="text-success bg-warning" %}{% endverbatim %}</pre></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<h4>Material Design Icons will be resized to same base size</h4>
+Left is a Bootstrap Icon (base size 16)
+Right is a Material Design icon (base size 20, original size is 24)
+<br>
+{% bs_icon 'alarm' size='2em' %}
+{% md_icon 'alarm' size='2.5em' %}
+<br>
+If you want to have the same size as Bootstrap Icons set them to a
+size factor of 1.25<br>
+If Bootstrap Icon is of size 2em, set Material Icon to 2.5em.
+<br/>
+Material Design Icons have some internal "padding" in svg so you need to include
+the django-bootstrap-icons css file to make some adjustments to the alignment
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-default" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-default" size='1.25em' %} default
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-top" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-top" size='1.25em' %} top
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-middle" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-middle" size='1.25em' %} middle
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-bottom" size='1em' %} {% md_icon 'alarm' extra_classes="bi-valign-bottom" size='1.25em' %} bottom
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-text-top" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-text-top" size='1.25em' %} text-top
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-text-bottom" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-text-bottom" size='1.25em' %} text-bottom
+</p>
+
+{% endblock %}

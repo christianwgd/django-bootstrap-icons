@@ -89,7 +89,7 @@ def custom_icon(icon_name, size=None, color=None, extra_classes=None):
     return format_html(render_svg(content, size, color, extra_classes))
 
 
-def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
+def get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
     """
     Manage caching of bootstrap icons
     :param str icon_path: icon path given by CDN
@@ -105,7 +105,10 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
     )
     cache_file = None
 
+    print(icon_path, icon_name)
+
     if cache_path:
+        print('from cache')
         if not os.path.exists(cache_path):
             os.makedirs(cache_path)
         cache_name = f'{icon_name}_{size}_{color}_{extra_classes}.svg'
@@ -117,6 +120,7 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
 
     # cached icon doesn't exist or no cache configured, create and return icon
     try:
+        print('load cache')
         resp = requests.get(icon_path)
         if resp.status_code >= 400:
             # return f"Icon <{icon_path}> does not exist"
@@ -125,6 +129,7 @@ def icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
                 'BS_ICONS_NOT_FOUND',
                 f"Icon <{icon_path}> does not exist"
             )
+            print('not found')
         content = xml.dom.minidom.parseString(resp.text)
         svg = render_svg(content, size, color, extra_classes)
         # if cache configured write icon to cache
@@ -159,7 +164,7 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     )
     icon_path = f'{base_url}icons/{icon_name}.svg'
 
-    svg = icon(icon_path, icon_name, size, color, extra_classes)
+    svg = get_icon(icon_path, icon_name, size, color, extra_classes)
     resp = format_html(svg)
     return resp
 
@@ -193,6 +198,6 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
     )
     icon_path = f'{base_url}svg/{icon_name}.svg'
 
-    svg = icon(icon_path, icon_name, size, color, extra_classes)
+    svg = get_icon(icon_path, icon_name, size, color, extra_classes)
     resp = format_html(svg)
     return resp

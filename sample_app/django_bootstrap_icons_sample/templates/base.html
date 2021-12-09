@@ -1,0 +1,16 @@
+{% extends 'bootstrap4/bootstrap4.html' %}
+{% load static bootstrap4 %}
+
+{% block bootstrap4_content %}
+<div class="container" id="id_content">
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="page_title">{% block page_title %}{% endblock %}</h3>
+            {% bootstrap_messages %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}
