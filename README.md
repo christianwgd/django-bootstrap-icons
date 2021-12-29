@@ -214,33 +214,4 @@ This project is licensed under the MIT License - see the
 * Thanks to [Material Design Icons](https://google.github.io/material-design-icons/)!
 
 ## Releases
-
-* django-bootstrap-icons 0.5.0 (April 2021): Refactor to use bootstrap svg icons from CDN
-* django-bootstrap-icons 0.5.1 (April 2021): Fix incorrect template tag names in documentation
-* django-bootstrap-icons 0.5.2 (April 2021): Handle error if custom icon svg does not exist
-* django-bootstrap-icons 0.5.3 (April 2021): Add css to specify vertical alignment of sgv icons
-* django-bootstrap-icons 0.5.4 (April 2021): Fix some documentation issues, no need to install 
-  since it affects only documentation
-* django-bootstrap-icons 0.5.5 (April 2021): Add support for Material Design Icons, no need to install 
-  as long as you don't want to use MDI.
-* django-bootstrap-icons 0.6.0 (Mai 2021): Update default bootstrap icons CDN to version 1.5.0
-* django-bootstrap-icons 0.6.1 (June 2021): Fix path building on windows (#3)
-* django-bootstrap-icons 0.6.2 (June 2021): Add icon cache to avoid multiple redering of same icon (#5)
-* django-bootstrap-icons 0.6.3 (June 2021): Add a configuration option what to display if icons are not found.
-* django-bootstrap-icons 0.6.4 (July 2021): Improve error handling for custom icons
-* django-bootstrap-icons 0.7.0 (October 2021): Update default bootstrap icons CDN to version 1.6.0
-* django-bootstrap-icons 0.7.1 (October 2021): Update default bootstrap icons CDN to bugfix version 1.6.1
-* django-bootstrap-icons 0.7.2 (November 2021): Update default bootstrap icons CDN to version [1.7.0](https://github.com/twbs/icons/releases/tag/v1.7.0), 
-update default Material Icons CDN to [6.4.95](https://materialdesignicons.com)
-* django-bootstrap-icons 0.7.3 (November 2021): Update default bootstrap icons CDN to version [1.7.1](https://github.com/twbs/icons/releases/tag/v1.7.1)
-* django-bootstrap-icons 0.7.4 (Dezember 2021): Update default bootstrap icons CDN to version [1.7.2](https://github.com/twbs/icons/releases/tag/v1.7.2)
-
-## Migration from 0.2
-
-If you had installed an earlier version of this package, you have to change some things:
-
-* Please remove the *include_bootstrap_icons* template tag, 
-  since this is no longer needed.
-
-* Change the name of the loading tag from 
-  *django_bootstrap_icons* to *bootstrap_icons*.
+- see CHANGELOG.md
