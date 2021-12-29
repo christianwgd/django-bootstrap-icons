@@ -108,7 +108,7 @@ def get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
     if cache_path:
         if not os.path.exists(cache_path):
             os.makedirs(cache_path)
-        cache_name = f'{icon_name}_{size}_{color}_{extra_classes}.svg'
+        cache_name = f'{icon_name}_{size}_{color}_{extra_classes}.svg'.replace(' ', '_')
         cache_file = os.path.join(cache_path, cache_name)
         if os.path.exists(cache_file):
             # icon exists in cache, use that
