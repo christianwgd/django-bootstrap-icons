@@ -3,7 +3,7 @@ import xml
 from django.conf import settings
 from django.test import TestCase
 
-from django_bootstrap_icons.templatetags.bootstrap_icons import get_static
+from django_bootstrap_icons.templatetags.bootstrap_icons import get_static, render_svg, custom_icon, get_icon
 
 
 class BootstrapIconsTest(TestCase):
@@ -66,7 +66,6 @@ class BootstrapIconsTest(TestCase):
         icon_name = 'abcde'
         icon_path = f'{base_url}icons/{icon_name}.svg'
         ico = get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None)
-        print(ico)
         pass
 
     def test_icon_from_cache(self):
