@@ -2,6 +2,16 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.7.5
+
+## Changed
+- Include sample app in repository
+- Added basic tests
+- Moved release information to CHANGELOG.md
+
+### Fixed
+- Replace blanks in cache file names with underscores
+
 ## 0.7.4
 
 ### Updated

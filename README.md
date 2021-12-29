@@ -215,3 +215,19 @@ This project is licensed under the MIT License - see the
 
 ## Releases
 - see CHANGELOG.md
+
+## Run the sample app
+```
+git clone https://github.com/christianwgd/django-bootstrap-icons.git
+cd django-bootstrap-icons
+<create a virtual environment with your preferred tooling (virtualenv/venv/pipenv)
+pip install -U -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+## Run the tests
+Setup the sample app (see above)
+```
+python manage.py test
+```

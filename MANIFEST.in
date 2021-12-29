@@ -1,4 +1,7 @@
 include LICENSE
 include README.md
 recursive-include django_bootstrap_icons/static *
+exclude manage.py
+exclude CHANGELOG.md
+exclude sample-app-result.png
 recursive-exclude django_bootstrap_icons_sample
