@@ -4,7 +4,7 @@
 
 ## 0.7.5
 
-## Changed
+### Changed
 - Include sample app in repository
 - Added basic tests
 - Moved release information to CHANGELOG.md
