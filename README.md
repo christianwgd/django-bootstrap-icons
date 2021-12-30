@@ -194,15 +194,6 @@ BS_ICONS_NOT_FOUND = '<?xml version="1.0" ?>\
 </svg>'
 ```
 
-## Example App
-
-There's an [Example App](https://github.com/christianwgd/django-bootstrap-icons-sample) 
-that shows how django bootstrap icons work on GitHub
-
-Output of the example app:
-![example](https://github.com/christianwgd/django-bootstrap-icons/blob/master/sample-app-result.png "Sample App Output")
-
-
 ## License
 
 This project is licensed under the MIT License - see the 
@@ -225,6 +216,9 @@ pip install -U -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
+
+Output of the example app: 
+![example](https://github.com/christianwgd/django-bootstrap-icons/blob/master/sample-app-result.png "Sample App Output")
 
 ## Run the tests
 Setup the sample app (see above)
