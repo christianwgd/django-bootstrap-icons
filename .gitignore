@@ -108,4 +108,4 @@ venv.bak/
 .project
 
 # sample app icon cache
-icon_cache/*.svg
+django_bootstrap_icons_sample/static/icon_cache/*
