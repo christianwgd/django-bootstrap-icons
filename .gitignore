@@ -106,6 +106,3 @@ venv.bak/
 # dev env
 .idea
 .project
-
-# sample app icon cache
-icon_cache/
