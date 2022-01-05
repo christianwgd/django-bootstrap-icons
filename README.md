@@ -2,6 +2,7 @@
 
 ![PyPI](https://img.shields.io/pypi/v/django-bootstrap-icons)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/django-bootstrap-icons)
+[![Django CI run test](https://github.com/christianwgd/django-bootstrap-icons/actions/workflows/django-test.yml/badge.svg)](https://github.com/christianwgd/django-bootstrap-icons/actions/workflows/django-test.yml)
 
 A quick way to add [Bootstrap Icons](https://icons.getbootstrap.com) with Django 
 template tags.
