@@ -2,6 +2,10 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.7.6
+
+- Update default bootstrap icons CDN to version 1.8.0
+
 ## 0.7.5
 
 ### Changed
