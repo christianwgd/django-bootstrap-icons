@@ -17,5 +17,6 @@ from django.urls import path
 from django_bootstrap_icons_sample import views
 
 urlpatterns = [
-    path("", views.HomePageView.as_view(), name="home"),
+    path('', views.HomePageView.as_view(), name='home'),
+    path('icon/', views.icon_view, name='icon'),
 ]

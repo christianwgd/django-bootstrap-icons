@@ -1,0 +1,48 @@
+{% extends "../base.html" %}
+{% load i18n static bootstrap4 bootstrap_icons %}
+
+{% block bootstrap4_extra_head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'bootstrap_icons/css/bootstrap_icons.css' %}">
+{% endblock %}
+
+{% block page_title %}Bootstrap Icon Samples{% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 col-12">
+
+        <form role="form" class="form-horizontal" method="post" novalidate>
+            {% csrf_token %}
+            {% bootstrap_form form layout='floating' %}
+            <button class="btn btn-primary" type="submit">
+                Show Icon
+            </button>
+        </form>
+
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+
+        {% if tag %}
+        <div class="card bg-white">
+            <div class="card-header text-center">
+                <pre>{{ text }}</pre>
+            </div>
+            <div class="card-body text-center">
+                <p style="font-size: {{ size }}px;">
+                    ===
+                    {{ tag }}
+                    ===
+                </p>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
