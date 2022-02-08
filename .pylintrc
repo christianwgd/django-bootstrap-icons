@@ -3,7 +3,7 @@ max-line-length=120
 
 [MESSAGE CONTROL]
 disable=
-    missing-module-docstring, missing-class-docstring, missing-function-docstring
+    missing-module-docstring, missing-class-docstring, missing-function-docstring, import-error
 
 [TYPECHECK]
 generated-members=REQUEST,acl_users,aq_parent,objects,_meta,id
