@@ -1,3 +1,8 @@
+/* set alignment to default */
+svg {
+    vertical-align: -.125em;
+}
+
 .bi-valign-default {
     vertical-align: -.125em;
 }
