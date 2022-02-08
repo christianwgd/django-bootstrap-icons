@@ -1,4 +1,5 @@
-import xml, os
+import xml
+import os
 
 from django.conf import settings
 from django.test import TestCase, override_settings
@@ -94,7 +95,7 @@ class BootstrapIconsTest(TestCase):
         )
         bs_icon_file = os.path.join(cache_path, 'asterisk_None_None_None.svg')
         # delete cached icon file
-        os.remove(bs_icon_file) if os.path.exists(bs_icon_file) else None
+        _ = os.remove(bs_icon_file) if os.path.exists(bs_icon_file) else None
         self.assertFalse(os.path.exists(bs_icon_file))
         # load icon into chache
         asterisk_icon = bs_icon('asterisk', size=None, color=None, extra_classes=None)

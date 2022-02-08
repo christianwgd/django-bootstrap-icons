@@ -33,6 +33,3 @@ class IconForm(forms.Form):
     icon_align = forms.ChoiceField(
         label='Alignment', choices=ALIGN_CHOICES, required=False
     )
-
-
-

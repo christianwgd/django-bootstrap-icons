@@ -11,6 +11,7 @@ class SamplesView(TemplateView):
     template_name = "django_bootstrap_icons_sample/samples.html"
 
 
+# pylint: disable=too-many-branches
 def icon_view(request):
     tag = None
     text = ''
