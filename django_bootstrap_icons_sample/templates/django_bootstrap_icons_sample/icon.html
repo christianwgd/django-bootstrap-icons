@@ -4,9 +4,63 @@
 {% block bootstrap4_extra_head %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'bootstrap_icons/css/bootstrap_icons.css' %}">
+<style>
+#id_code { font-family: monospace, monospace; }
+</style>
 {% endblock %}
 
-{% block page_title %}Bootstrap Icon Samples{% endblock %}
+{% block bootstrap4_extra_script %}
+{{ block.super }}
+<script>
+function fallbackCopyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+
+  // Avoid scrolling to bottom
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Fallback: Copying text command was ' + msg);
+  } catch (err) {
+    console.error('Fallback: Oops, unable to copy', err);
+  }
+
+  document.body.removeChild(textArea);
+}
+function copyTextToClipboard(text) {
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function() {
+    console.log('Async: Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Async: Could not copy text: ', err);
+  });
+}
+
+$(document).ready(function() {
+
+    $( "#id_copy_text" ).on( "click", function() {
+        let copied_text = $('#id_code').text();
+       copyTextToClipboard(copied_text);
+        alert('copied');
+    });
+
+});
+</script>
+{% endblock %}
+
+
+{% block page_title %}Try the icons{% endblock %}
 
 {% block content %}
 
@@ -16,10 +70,13 @@
 
         <form role="form" class="form-horizontal" method="post" novalidate>
             {% csrf_token %}
-            {% bootstrap_form form layout='floating' %}
+            {% bootstrap_form form %}
             <button class="btn btn-primary" type="submit">
                 Show Icon
             </button>
+            <a href="{% url 'samples' %}" class="btn btn-secondary">
+                Show samples
+            </a>
         </form>
 
     </div>
@@ -31,13 +88,16 @@
         {% if tag %}
         <div class="card bg-white">
             <div class="card-header text-center">
-                <pre>{{ text }}</pre>
+                <pre id="id_code">{{ text }}</pre>
+                <span id="id_copy_text">
+                    {% bs_icon 'clipboard' extra_classes="bi-valign-default" %}
+                </span>
             </div>
             <div class="card-body text-center">
                 <p style="font-size: {{ size }}px;">
-                    ===
+                    ---
                     {{ tag }}
-                    ===
+                    ---
                 </p>
             </div>
         </div>

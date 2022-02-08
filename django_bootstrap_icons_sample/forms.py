@@ -6,12 +6,10 @@ TYPE_CHOICES = (
 )
 
 ALIGN_CHOICES = (
-    ('', 'None'),
-    ('bi-valign-default', 'default'),
+    ('', 'default'),
     ('bi-valign-top', 'top'),
     ('bi-valign-middle', 'middle'),
     ('bi-valign-bottom', 'bottom'),
-    ('bi-valign-default', 'default'),
     ('bi-valign-text-top', 'text-top'),
     ('bi-valign-text-bottom', 'text-bottom'),
 )
@@ -21,7 +19,7 @@ class IconForm(forms.Form):
         label='Type', choices=TYPE_CHOICES
     )
     icon_name = forms.CharField(
-        label='Name', max_length=50,
+        label='Name', max_length=50, required=True,
         help_text='The name of an icon without any "bi" or "md" prefixes'
     )
     icon_size = forms.CharField(

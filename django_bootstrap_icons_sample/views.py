@@ -7,11 +7,14 @@ from django_bootstrap_icons.templatetags.bootstrap_icons import bs_icon, md_icon
 from django_bootstrap_icons_sample.forms import IconForm
 
 
-class HomePageView(TemplateView):
-    template_name = "django_bootstrap_icons_sample/index.html"
+class SamplesView(TemplateView):
+    template_name = "django_bootstrap_icons_sample/samples.html"
 
 
 def icon_view(request):
+    tag = None
+    text = ''
+    size = '16'
 
     if request.method == 'POST':
         form = IconForm(request.POST)
@@ -42,10 +45,10 @@ def icon_view(request):
             if align:
                 text += f' extra_classes="{align}"'
             text = '{% ' + text + ' %}'
-    else:
-        tag = None
-        text = ''
-        size = '16'
+        else:
+            print('invalid')
+            print(form.errors)
+    else:  # GET
         form = IconForm()
 
     return render(request, 'django_bootstrap_icons_sample/icon.html', {

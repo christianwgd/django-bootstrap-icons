@@ -188,9 +188,9 @@ css:
 <h4>Material Design Icons will be resized to same base size</h4>
 Left is a Bootstrap Icon (base size 16)
 Right is a Material Design icon (base size 20, original size is 24)
-<br>
-{% bs_icon 'alarm' size='2em' %}
-{% md_icon 'alarm' size='2.5em' %}
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-default" %}{% md_icon 'alarm' extra_classes="bi-valign-default" %} default
+</p>
 <br>
 If you want to have the same size as Bootstrap Icons set them to a
 size factor of 1.25<br>
@@ -198,6 +198,7 @@ If Bootstrap Icon is of size 2em, set Material Icon to 2.5em.
 <br/>
 Material Design Icons have some internal "padding" in svg so you need to include
 the django-bootstrap-icons css file to make some adjustments to the alignment
+
 <p>
     {% bs_icon 'alarm' extra_classes="bi-valign-default" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-default" size='1.25em' %} default
 </p>
