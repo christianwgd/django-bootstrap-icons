@@ -1,10 +1,10 @@
 /* set alignment to default */
 svg {
-    vertical-align: -.125em;
+    vertical-align: -.125rem;
 }
 
 .bi-valign-default {
-    vertical-align: -.125em;
+    vertical-align: -.125rem;
 }
 
 .bi-valign-top {

@@ -2,6 +2,10 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.7.8
+
+- Fix default alingment of icons from -0.125em to rem 
+
 ## 0.7.7
 
 - Update default bootstrap icons CDN to version 1.8.1
