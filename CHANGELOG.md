@@ -2,6 +2,11 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.7.9
+
+- Update default Bootstrap Icons CDN to version 1.8.2
+- Update default Material Icons CDN to 6.6.96
+
 ## 0.7.8
 
 - Fix default alingment of icons from -0.125em to rem 
