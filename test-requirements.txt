@@ -1,4 +1,4 @@
-django==3.2.13
-django-bootstrap4==21.2
-requests==2.27.1
-pylint==2.12.2
+django==3.2.14
+django-bootstrap4==22.1
+requests==2.28.1
+pylint==2.14.4

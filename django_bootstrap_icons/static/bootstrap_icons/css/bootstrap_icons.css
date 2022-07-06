@@ -3,6 +3,11 @@ svg {
     vertical-align: -.125rem;
 }
 
+/* set alignment in buttons to middle */
+.btn svg {
+    vertical-align: middle;
+}
+
 .bi-valign-default {
     vertical-align: -.125rem;
 }
