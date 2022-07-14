@@ -1,11 +1,9 @@
 /* set alignment to default */
-svg {
+svg.bi, svg.mdi {
     vertical-align: -.125rem;
 }
-
-/* set alignment in buttons to middle */
-.btn svg {
-    vertical-align: middle;
+svg.mdi {
+    transform:translateY(10%);
 }
 
 .bi-valign-default {
