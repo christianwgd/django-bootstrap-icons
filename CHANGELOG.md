@@ -2,6 +2,11 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.8.1
+
+### Fixed
+- Vertical alignment couldn't be set by extra_classes
+
 ## 0.8.0
 
 ### Changed

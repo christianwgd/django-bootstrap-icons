@@ -6,40 +6,47 @@ svg.mdi {
     transform:translateY(10%);
 }
 
-.bi-valign-default {
+svg.bi.bi-valign-default,
+svg.mdi.bi-valign-default {
     vertical-align: -.125rem;
 }
 
-.bi-valign-top {
+svg.bi.bi-valign-top,
+svg.mdi.bi-valign-top {
     vertical-align: top;
 }
 
-.bi-valign-middle {
+svg.bi.bi-valign-middle,
+svg.mdi.bi-valign-middle {
     vertical-align: middle;
 }
 
-.bi-valign-bottom {
+svg.bi.bi-valign-bottom,
+svg.mdi.bi-valign-bottom {
     vertical-align: bottom;
 }
 
-.bi-valign-text-top {
+svg.bi.bi-valign-text-top,
+svg.mdi.bi-valign-text-top {
     vertical-align: text-top;
 }
 
-.bi-valign-text-bottom {
+
+svg.bi.bi-valign-text-bottom,
+svg.mdi.bi-valign-text-bottom {
     vertical-align: text-bottom;
 }
 
 /* Material Design Icons have some internal
    "padding" in the svg, so we need some
    alignment adjustments of md icons */
-.mdi.bi-valign-default,
-.mdi.bi-valign-bottom,
-.mdi.bi-valign-text-bottom {
+svg.mdi.bi-valign-default,
+svg.mdi.bi-valign-bottom,
+svg.mdi.bi-valign-text-bottom {
     transform:translateY(10%);
 }
 
-.mdi.bi-valign-top,
-.mdi.bi-valign-text-top {
+svg.mdi.bi-valign-top,
+svg.mdi.bi-valign-text-top {
     transform:translateY(-10%);
 }
