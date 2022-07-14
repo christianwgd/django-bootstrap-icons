@@ -1,18 +1,22 @@
 from django import forms
 
+
 TYPE_CHOICES = (
     ('bi', 'Bootstrap Icon'),
     ('mdi', 'Material Design Icon'),
 )
 
+
 ALIGN_CHOICES = (
-    ('', 'default'),
+    ('', 'None'),
+    ('bi-valign-default', 'default'),
     ('bi-valign-top', 'top'),
     ('bi-valign-middle', 'middle'),
     ('bi-valign-bottom', 'bottom'),
     ('bi-valign-text-top', 'text-top'),
     ('bi-valign-text-bottom', 'text-bottom'),
 )
+
 
 class IconForm(forms.Form):
     icon_type = forms.ChoiceField(
