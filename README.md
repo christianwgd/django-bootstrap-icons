@@ -91,7 +91,7 @@ The following classes are available:
 .bi-valign-text-bottom
 ```
 
-If you have included the django-bootstrap-icons css, the default alignment will set 
+If you have included the django-bootstrap-icons css, the default alignment will be to 
 the values from ".bi-valign-default", so no need to add a class explicitly.
  
 ### Custom icons
