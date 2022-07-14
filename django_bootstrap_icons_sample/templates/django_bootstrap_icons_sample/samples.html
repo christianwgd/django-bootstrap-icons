@@ -83,8 +83,8 @@ css:
                         {% bs_icon 'alarm' extra_classes="bi-valign-text-top" %}
                         {% bs_icon 'alarm' extra_classes="bi-valign-text-bottom" %}
                     </td>
-                    <td><pre>{% verbatim %}Alignement extra_classes: bi-valign-default bi-valign-middle bi-valign-bottom
-                          bi-valign-text-top bi-valign-text-bottom{% endverbatim %}</pre></td>
+                    <td><pre>{% verbatim %}Alignement extra_classes: bi-valign-default | bi-valign-middle | bi-valign-bottom
+                          | bi-valign-text-top | bi-valign-text-bottom{% endverbatim %}</pre></td>
                 </tr>
                 <tr>
                     <td>{% bs_icon 'alarm' size='1.5em' extra_classes="text-success bg-warning" %}</td>
@@ -96,9 +96,12 @@ css:
     </div>
 </div>
 
-<h4>There are differnt alingments for django-bootstrap-icons</h4>
+<h4>There are different alingments for django-bootstrap-icons</h4>
 <p>
-    {% bs_icon 'alarm' extra_classes="bi-valign-default" %} align -.125 and some text
+    {% bs_icon 'alarm' %} align none and some text
+</p>
+<p>
+    {% bs_icon 'alarm' extra_classes="bi-valign-default" %} align default (-.125rem) and some text
 </p>
 <p>
     {% bs_icon 'alarm' extra_classes="bi-valign-middle" %} align middle and some text
@@ -200,6 +203,9 @@ Material Design Icons have some internal "padding" in svg so you need to include
 the django-bootstrap-icons css file to make some adjustments to the alignment
 
 <p>
+    {% bs_icon 'alarm' size='1em' %}{% md_icon 'alarm' size='1.25em' %} none
+</p>
+<p>
     {% bs_icon 'alarm' extra_classes="bi-valign-default" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-default" size='1.25em' %} default
 </p>
 <p>
@@ -217,5 +223,15 @@ the django-bootstrap-icons css file to make some adjustments to the alignment
 <p>
     {% bs_icon 'alarm' extra_classes="bi-valign-text-bottom" size='1em' %}{% md_icon 'alarm' extra_classes="bi-valign-text-bottom" size='1.25em' %} text-bottom
 </p>
+
+<h4>Icons on buttons</h4>
+
+<button class="btn btn-primary">
+    {% bs_icon 'alarm' %} Bootstrap
+</button>
+
+<button class="btn btn-primary">
+    {% md_icon 'alarm' %} Material
+</button>
 
 {% endblock %}
