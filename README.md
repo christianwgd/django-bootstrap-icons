@@ -13,11 +13,11 @@ and sizing.
 ## Installing
 
 `django-bootstrap-icons` can be found on pypi. Run `pip install django-bootstrap-icons` 
-to install the package on your machine.
+to install the package on your machine or in your virtual environment.
 
 ## Getting Started
 
-Using django-bootstrap-icons is easy. First, install the `django_bootstrap_icons` 
+Using django-bootstrap-icons is easy. First, add the `django_bootstrap_icons` 
 Django app in your settings file.
 
 ```
@@ -32,8 +32,8 @@ Also, load the tag library in your template file:
 {% load bootstrap_icons %}
 ```
 
-Then, add an icon with the following tag. Give the name icon's name as the 
-first parameter, and that's all that's required.
+Then, add an icon with the following tag. Give the icon's name as the 
+first parameter, and that's all that's required:
 
 ```
 {% bs_icon 'alarm' %}
@@ -63,7 +63,7 @@ For further styling, you can add extra css classes:
 
 #### Vertical alignment
 
-By default all sgv bootstrap icons are vertical aligned to the middle. Sometimes this is 
+By default, all sgv bootstrap icons are vertical aligned to the middle. Sometimes this is 
 not appropriate, especially when rendering beside text. To align with text *django-bootstrap-icons*
 provides some css classes to set the desired vertical alignment. 
 
@@ -85,11 +85,14 @@ The following classes are available:
 .bi-valign-default /* This is a compromise also provided by bootstrap
                      for the icon font. The value is vertical-align: -.125em; 
                      (see https://github.com/twbs/icons/issues/601 for details) */
-.bi-valign-middle /* this is the real default, so you may not need it */
+.bi-valign-middle /* this is the default from bootstrap for svg */
 .bi-valign-bottom
 .bi-valign-text-top
 .bi-valign-text-bottom
 ```
+
+If you have included the django-bootstrap-icons css, the default alignment will set 
+the values from ".bi-valign-default", so no need to add a class explicitly.
  
 ### Custom icons
 There's a template tag for your custom icons. Store the custom icons in some 
@@ -140,7 +143,7 @@ makes some adjustments in rendering the icons:
 You can specify the source from which the icons are loaded:
 
 ```
-BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/'
+BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/'
 ```
 
 BS_ICONS_BASE_URL defaults to the latest boostrap-icons CDN that was available 
@@ -159,7 +162,7 @@ BS_ICONS_CUSTOM_PATH = 'custom-icons'
 Material Desing Icons are loaded from the default URL:
 
 ```
-MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@6.4.95/'
+MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@6.9.96/'
 ```
 
 You can change it to your desired location by overriding this setting.       

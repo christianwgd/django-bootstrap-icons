@@ -2,6 +2,15 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.8.0
+
+### Changed
+- Update default Bootstrap Icons CDN to version 1.9.0
+- Update default Material Icons CDN to 6.9.96
+
+### Fixed
+- Set alignment to default if no class is provided for bi and mdi icons
+
 ## 0.7.9
 
 - Update default Bootstrap Icons CDN to version 1.8.2
