@@ -58,7 +58,7 @@ class BootstrapIconsTest(TestCase):
         base_url = getattr(
             settings,
             'BS_ICONS_BASE_URL',
-            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/',
+            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/',
         )
         icon_not_found = getattr(
             settings, 'BS_ICONS_NOT_FOUND'

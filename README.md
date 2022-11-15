@@ -162,7 +162,7 @@ BS_ICONS_CUSTOM_PATH = 'custom-icons'
 Material Desing Icons are loaded from the default URL:
 
 ```
-MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@6.9.96/'
+MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@7.0.96/'
 ```
 
 You can change it to your desired location by overriding this setting.       

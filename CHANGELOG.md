@@ -2,6 +2,12 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.8.2
+
+### Changed
+- Update default Bootstrap Icons CDN to version 1.10.2
+- Update default Material Icons CDN to 7.0.96
+
 ## 0.8.1
 
 ### Fixed
