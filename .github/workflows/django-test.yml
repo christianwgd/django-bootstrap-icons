@@ -27,4 +27,4 @@ jobs:
         pip install -r test-requirements.txt
     - name: Run Tests
       run: |
-        pyest
+        pytest
