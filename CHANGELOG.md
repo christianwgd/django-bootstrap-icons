@@ -2,6 +2,13 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.8.3
+
+### Changed
+- Update default Bootstrap Icons CDN to version 1.10.4
+- Update default Material Icons CDN to 7.2.96
+- Switch to pytest for testing
+
 ## 0.8.2
 
 ### Changed

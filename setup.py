@@ -5,8 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='django-bootstrap-icons',
-    version='0.8.2',
-    packages=setuptools.find_packages(exclude=["django_bootstrap_icons_sample", "*manage.py", "*sample-app-result.png"]),
+    version='0.8.3',
+    packages=setuptools.find_packages(
+        exclude=["django_bootstrap_icons_sample", "*manage.py", "*sample-app-result.png"]
+    ),
     include_package_data=True,
     description='A quick way to add Bootstrap Icons with Django template tags.',
     long_description=long_description,

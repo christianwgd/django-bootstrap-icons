@@ -12,16 +12,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: '3.10'
 
-      - name: Install Django
-        run: pip install django
-      - name: Install pylint
-        run: pip install pylint
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r test-requirements.txt
 
       - name: Check format
-        run: find ./django_bootstrap_icons -type f -name "*.py" | xargs pylint
+        run: pylint --recursive=y .
     

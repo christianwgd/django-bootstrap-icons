@@ -143,7 +143,7 @@ makes some adjustments in rendering the icons:
 You can specify the source from which the icons are loaded:
 
 ```
-BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/'
+BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/'
 ```
 
 BS_ICONS_BASE_URL defaults to the latest boostrap-icons CDN that was available 
@@ -162,7 +162,7 @@ BS_ICONS_CUSTOM_PATH = 'custom-icons'
 Material Desing Icons are loaded from the default URL:
 
 ```
-MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@7.0.96/'
+MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@7.2.96/'
 ```
 
 You can change it to your desired location by overriding this setting.       
