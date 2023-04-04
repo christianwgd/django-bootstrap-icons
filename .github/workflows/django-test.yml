@@ -27,4 +27,4 @@ jobs:
         pip install -r test-requirements.txt
     - name: Run Tests
       run: |
-        python manage.py test
+        pyest

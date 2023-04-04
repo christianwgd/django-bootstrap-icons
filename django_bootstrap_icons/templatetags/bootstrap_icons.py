@@ -117,7 +117,7 @@ def get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
 
     # cached icon doesn't exist or no cache configured, create and return icon
     try:
-        resp = requests.get(icon_path)
+        resp = requests.get(icon_path, timeout=20)
         if resp.status_code >= 400:
             # return f"Icon <{icon_path}> does not exist"
             return getattr(
