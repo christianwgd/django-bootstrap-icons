@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='django-bootstrap-icons',
-    version='0.8.3',
+    version='0.8.4',
     packages=setuptools.find_packages(
         exclude=["django_bootstrap_icons_sample", "*manage.py", "*sample-app-result.png"]
     ),
