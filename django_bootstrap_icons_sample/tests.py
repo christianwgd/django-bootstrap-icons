@@ -1,6 +1,6 @@
-import xml
 import os
 
+from defusedxml.minidom import parse
 from django.conf import settings
 from django.test import TestCase, override_settings
 
@@ -19,7 +19,7 @@ class BootstrapIconsTest(TestCase):
 
     def test_render_svg(self):
         icon_path = get_static('apps')
-        content = xml.dom.minidom.parse(icon_path)
+        content = parse(icon_path)
         rendered = render_svg(content, size=None, color=None, extra_classes=None)
         self.assertIn('id="test-icon"', rendered)
         self.assertIn('viewBox="0 0 24 24"', rendered)
@@ -27,14 +27,14 @@ class BootstrapIconsTest(TestCase):
 
     def test_render_svg_size(self):
         icon_path = get_static('apps')
-        content = xml.dom.minidom.parse(icon_path)
+        content = parse(icon_path)
         rendered = render_svg(content, size='20px', color=None, extra_classes=None)
         self.assertIn('width="20px"', rendered)
         self.assertIn('height="20px"', rendered)
 
     def test_render_svg_color(self):
         icon_path = get_static('apps')
-        content = xml.dom.minidom.parse(icon_path)
+        content = parse(icon_path)
         self.assertIn(
             'fill="red"',
             render_svg(content, size=None, color='red', extra_classes=None)
@@ -42,7 +42,7 @@ class BootstrapIconsTest(TestCase):
 
     def test_render_svg_extra_classes(self):
         icon_path = get_static('apps')
-        content = xml.dom.minidom.parse(icon_path)
+        content = parse(icon_path)
         self.assertIn(
             'class="class_a, class_b"',
             render_svg(content, size=None, color=None, extra_classes='class_a, class_b')

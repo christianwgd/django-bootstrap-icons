@@ -1,7 +1,7 @@
 """ django bootstrap icons templatetags """
 import os
-import xml.dom.minidom
 import requests
+from defusedxml.minidom import parse, parseString
 
 from django.conf import settings
 from django.contrib.staticfiles.finders import find
@@ -85,7 +85,7 @@ def custom_icon(icon_name, size=None, color=None, extra_classes=None):
 
     icon_path = get_static(icon_name)
     try:
-        content = xml.dom.minidom.parse(icon_path)
+        content = parse(icon_path)
     except FileNotFoundError:
         return f"Icon <{icon_path}> does not exist"
     return format_html(render_svg(content, size, color, extra_classes))
@@ -127,7 +127,7 @@ def get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
                 'BS_ICONS_NOT_FOUND',
                 f"Icon <{icon_path}> does not exist"
             )
-        content = xml.dom.minidom.parseString(resp.text)
+        content = parseString(resp.text)
         svg = render_svg(content, size, color, extra_classes)
         # if cache configured write icon to cache
         if cache_path and cache_file:
