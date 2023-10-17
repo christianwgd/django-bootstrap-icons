@@ -46,7 +46,7 @@ jobs:
         pip install -r test-requirements.txt
     - name: Create coverage report
       run: |
-        pytest --cov --cov-report=xml
+        pytest --junitxml=unittest.xml --cov --cov-report=xml
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2.4.1
       with:
