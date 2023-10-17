@@ -46,9 +46,6 @@ def icon_view(request):
             if align:
                 text += f' extra_classes="{align}"'
             text = '{% ' + text + ' %}'
-        else:
-            print('invalid')
-            print(form.errors)
     else:  # GET
         form = IconForm()
 

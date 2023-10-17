@@ -1,7 +1,6 @@
-django==4.2.5
+django==4.2.6
 django-bootstrap4==23.2
 requests==2.31.0
-pylint==2.17.5
-pylint-django==2.5.3
 pytest==7.4.2
 pytest-django==4.5.2
+ruff==0.1.0

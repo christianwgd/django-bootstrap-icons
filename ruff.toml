@@ -1,0 +1,22 @@
+# Enable flake8-bugbear (`B`) rules.
+select = [
+    "E", "F", "B", "PL", "S", "W", "N", "G", "C4", "EM",
+    "ISC", "ICN", "PIE", "T20", "PYI", "PT", "RET", "INT", "RUF"
+]
+
+line-length = 120
+ignore = [
+    "B905",  # `zip()` without an explicit `strict=` parameter
+    "PT009",  # Use a regular `assert` instead of unittest-style `{assertion}`
+    "S308",  # Use of `mark_safe` may expose cross-site scripting vulnerabilities
+    "PLR2004",  # magic-value-comparison
+    "N813", # Camelcase `BeautifulSoup` imported as lowercase `bs`
+    "PLR0912", # Too many branches
+    "PLR0915", # Too many statements
+    "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+]
+
+# Ignore `E501` (line length) in all `__init__.py`  and migration files
+[per-file-ignores]
+"__init__.py" = ["E501"]
+"**/migrations/*.py" = ["E501"]

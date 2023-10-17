@@ -28,12 +28,14 @@ def get_static(icon_name):
     if settings.DEBUG:
         custom_path = find(custom_dir)
         if not custom_path:
-            raise ImproperlyConfigured("BS_ICONS_CUSTOM_PATH does not exist.")
+            ex_msg = "BS_ICONS_CUSTOM_PATH does not exist."
+            raise ImproperlyConfigured(ex_msg)
     else:
         custom_path = os.path.join(settings.STATIC_ROOT, custom_dir)
 
     if not os.path.exists(custom_path):
-        raise ImproperlyConfigured("BS_ICONS_CUSTOM_PATH does not exist.")
+        ex_msg = "BS_ICONS_CUSTOM_PATH does not exist."
+        raise ImproperlyConfigured(ex_msg)
 
     return os.path.join(
         custom_path, '.'.join((icon_name, 'svg'))
@@ -160,8 +162,7 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     icon_path = f'{base_url}icons/{icon_name}.svg'
 
     svg = get_icon(icon_path, icon_name, size, color, extra_classes)
-    resp = format_html(svg)
-    return resp
+    return format_html(svg)
 
 
 @register.simple_tag
@@ -194,5 +195,4 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
     icon_path = f'{base_url}svg/{icon_name}.svg'
 
     svg = get_icon(icon_path, icon_name, size, color, extra_classes)
-    resp = format_html(svg)
-    return resp
+    return format_html(svg)

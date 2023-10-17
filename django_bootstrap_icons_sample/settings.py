@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j$-l)_d7+n3#wayxv@u@w-5$nc0uvxd*54h%u+ngxm$)0fe1!q'
+SECRET_KEY = 'django-insecure-j$-l)_d7+n3#wayxv@u@w-5$nc0uvxd*54h%u+ngxm$)0fe1!q'  # noqa: S105
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -139,6 +139,8 @@ BS_ICONS_CACHE = os.path.join(STATIC_ROOT, 'icon_cache')
 BS_ICONS_NOT_FOUND = '<?xml version="1.0" ?>\
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">\
 	<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>\
-	<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>\
+	<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 \
+	8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 \
+	8 4.646 5.354a.5.5 0 0 1 0-.708z"/>\
 </svg>'
 BS_ICONS_CUSTOM_PATH = 'custom-icons'

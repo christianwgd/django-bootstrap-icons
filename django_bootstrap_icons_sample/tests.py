@@ -60,9 +60,7 @@ class BootstrapIconsTest(TestCase):
             'BS_ICONS_BASE_URL',
             'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/',
         )
-        icon_not_found = getattr(
-            settings, 'BS_ICONS_NOT_FOUND'
-        )
+        icon_not_found = settings.BS_ICONS_NOT_FOUND
         icon_name = 'abcde'
         icon_path = f'{base_url}icons/{icon_name}.svg'
         ico = get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None)
