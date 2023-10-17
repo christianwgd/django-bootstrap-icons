@@ -2,6 +2,13 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.8.6
+
+### Changed
+- Change from pylint to ruff
+- Address vulnerability in xml.minidom by using defusedxml
+- Increase test coverage
+
 ## 0.8.5
 
 ### Changed
