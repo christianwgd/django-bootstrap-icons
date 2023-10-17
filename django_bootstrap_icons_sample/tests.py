@@ -1,7 +1,10 @@
 import os
+import shutil
 
+import pytest
 from defusedxml.minidom import parse
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.test import TestCase, override_settings
 
 from django_bootstrap_icons.templatetags.bootstrap_icons import get_static, render_svg, \
@@ -16,6 +19,32 @@ class BootstrapIconsTest(TestCase):
             get_static('test'),
             f'{static_root}/custom-icons/test.svg'
         )
+
+    @override_settings(BS_ICONS_CUSTOM_PATH='no_custom_dir')
+    def test_get_static_no_custom_path(self):
+        static_root = settings.STATIC_ROOT
+        with self.assertRaises(ImproperlyConfigured):
+            self.assertEqual(
+                get_static('test'),
+                f'{static_root}/custom-icons/test.svg'
+            )
+
+    @override_settings(DEBUG=True)
+    def test_get_static_debug(self):
+        static_root = settings.STATIC_ROOT
+        self.assertEqual(
+            get_static('test'),
+            f'{static_root}/custom-icons/test.svg'
+        )
+
+    @override_settings(DEBUG=True, BS_ICONS_CUSTOM_PATH='no_custom_dir')
+    def test_get_static_debug_no_cache_path(self):
+        static_root = settings.STATIC_ROOT
+        with self.assertRaises(ImproperlyConfigured):
+            self.assertEqual(
+                get_static('test'),
+                f'{static_root}/custom-icons/test.svg'
+            )
 
     def test_render_svg(self):
         icon_path = get_static('apps')
@@ -48,11 +77,28 @@ class BootstrapIconsTest(TestCase):
             render_svg(content, size=None, color=None, extra_classes='class_a, class_b')
         )
 
+    def test_render_svg_extra_classes_icon_class(self):
+        icon_path = get_static('apple_w_class')
+        content = parse(icon_path)
+        self.assertIn(
+            'class="test class_a class_b"',
+            render_svg(content, size=None, color=None, extra_classes='class_a class_b')
+        )
+
     def test_custom_icon(self):
         rendered = custom_icon('apps', size=None, color=None, extra_classes=None)
         self.assertIn('id="test-icon"', rendered)
         self.assertIn('viewBox="0 0 24 24"', rendered)
         self.assertIn('width="24"', rendered)
+
+    def test_custom_icon_name_none(self):
+        rendered = custom_icon(None, size=None, color=None, extra_classes=None)
+        self.assertEqual(rendered, '')
+
+    def test_custom_icon_file_does_not_exist(self):
+        rendered = custom_icon('abc', size=None, color=None, extra_classes=None)
+        self.assertIn('does not exist', rendered)
+
 
     def test_get_icon_cache_not_found(self):
         base_url = getattr(
@@ -66,6 +112,32 @@ class BootstrapIconsTest(TestCase):
         ico = get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None)
         self.assertEqual(ico, icon_not_found)
 
+    def test_get_icon_cache_exception(self):
+        base_url = getattr(
+            settings,
+            'BS_ICONS_BASE_URL',
+            'https://doesnt_exist.abc/',
+        )
+        icon_not_found = settings.BS_ICONS_NOT_FOUND
+        icon_name = 'abcde'
+        icon_path = f'{base_url}icons/{icon_name}.svg'
+        ico = get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None)
+        self.assertEqual(ico, icon_not_found)
+
+    @override_settings(BS_ICONS_CACHE=os.path.join(settings.STATIC_ROOT, 'no_icon_cache'))
+    def test_get_icon_cache_dir_does_not_exist(self):
+        base_url = getattr(
+            settings,
+            'BS_ICONS_BASE_URL',
+            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/',
+        )
+        icon_not_found = settings.BS_ICONS_NOT_FOUND
+        icon_name = 'abcde'
+        icon_path = f'{base_url}icons/{icon_name}.svg'
+        get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None)
+        self.assertTrue(os.path.isdir(os.path.join(settings.STATIC_ROOT, 'no_icon_cache')))
+        shutil.rmtree(os.path.join(settings.STATIC_ROOT, 'no_icon_cache'))
+
     # Make sure we test without cache
     @override_settings(BS_ICONS_CACHE=None)
     def test_boostrap_icon(self):
@@ -73,6 +145,10 @@ class BootstrapIconsTest(TestCase):
         self.assertIn(
             'class="bi bi-asterisk"', asterisk_icon
         )
+
+    def test_bootstrap_icon_no_name(self):
+        asterisk_icon = bs_icon(None, size=None, color=None, extra_classes=None)
+        self.assertEqual(asterisk_icon, '')
 
     # Make sure we test without cache
     # @override_settings(BS_ICONS_CACHE=None)
@@ -83,6 +159,16 @@ class BootstrapIconsTest(TestCase):
         )
         self.assertIn(
             'class="mdi mdi-asterisk"', asterisk_icon
+        )
+
+    def test_material_design_icon_no_name(self):
+        asterisk_icon = md_icon(None, size=None, color=None, extra_classes=None)
+        self.assertEqual(asterisk_icon, '')
+
+    def test_material_design_icon_extra_classes(self):
+        asterisk_icon = md_icon('asterisk', size=None, color=None, extra_classes='test')
+        self.assertIn(
+            'class="mdi mdi-asterisk test"', asterisk_icon
         )
 
     def test_bootstrap_icon_cache(self):
