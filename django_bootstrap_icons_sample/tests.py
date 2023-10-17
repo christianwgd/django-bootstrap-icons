@@ -23,7 +23,7 @@ class BootstrapIconsTest(TestCase):
     @override_settings(BS_ICONS_CUSTOM_PATH='no_custom_dir')
     def test_get_static_no_custom_path(self):
         static_root = settings.STATIC_ROOT
-        with self.assertRaises(ImproperlyConfigured):
+        with pytest.raises(ImproperlyConfigured):
             self.assertEqual(
                 get_static('test'),
                 f'{static_root}/custom-icons/test.svg'
@@ -40,7 +40,7 @@ class BootstrapIconsTest(TestCase):
     @override_settings(DEBUG=True, BS_ICONS_CUSTOM_PATH='no_custom_dir')
     def test_get_static_debug_no_cache_path(self):
         static_root = settings.STATIC_ROOT
-        with self.assertRaises(ImproperlyConfigured):
+        with pytest.raises(ImproperlyConfigured):
             self.assertEqual(
                 get_static('test'),
                 f'{static_root}/custom-icons/test.svg'
@@ -131,7 +131,6 @@ class BootstrapIconsTest(TestCase):
             'BS_ICONS_BASE_URL',
             'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/',
         )
-        icon_not_found = settings.BS_ICONS_NOT_FOUND
         icon_name = 'abcde'
         icon_path = f'{base_url}icons/{icon_name}.svg'
         get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None)
