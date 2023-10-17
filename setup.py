@@ -19,7 +19,8 @@ setuptools.setup(
     keywords=['django', 'bootstrap', 'icons', 'templatetags'],
     install_requires=[
         'django',
-        'requests'
+        'defusedxml',
+        'requests',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

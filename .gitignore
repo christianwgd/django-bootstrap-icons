@@ -112,3 +112,6 @@ django_bootstrap_icons_sample/static/icon_cache/*
 
 # ruff cache
 .ruff_cache/
+
+# code coverage
+htmlcov/
