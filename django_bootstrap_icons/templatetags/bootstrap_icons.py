@@ -8,7 +8,7 @@ from django.contrib.staticfiles.finders import find
 # noinspection PyProtectedMember
 from django.core.exceptions import ImproperlyConfigured
 from django.template import Library
-from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 
 register = Library()
 
@@ -88,7 +88,7 @@ def custom_icon(icon_name, size=None, color=None, extra_classes=None):
         content = parse(icon_path)
     except FileNotFoundError:
         return f"Icon <{icon_path}> does not exist"
-    return format_html(render_svg(content, size, color, extra_classes))
+    return mark_safe(render_svg(content, size, color, extra_classes))
 
 
 def get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
@@ -162,7 +162,7 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     icon_path = f'{base_url}icons/{icon_name}.svg'
 
     svg = get_icon(icon_path, icon_name, size, color, extra_classes)
-    return format_html(svg)
+    return mark_safe(svg)
 
 
 @register.simple_tag
@@ -195,4 +195,4 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
     icon_path = f'{base_url}svg/{icon_name}.svg'
 
     svg = get_icon(icon_path, icon_name, size, color, extra_classes)
-    return format_html(svg)
+    return mark_safe(svg)
