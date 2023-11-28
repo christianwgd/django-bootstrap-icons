@@ -203,7 +203,7 @@ BS_ICONS_NOT_FOUND = '<?xml version="1.0" ?>\
 ## License
 
 This project is licensed under the MIT License - see the 
-[LICENSE](https://github.com/christianwgd/django-bootstrap-icons/blob/master/LICENCE) file for details
+[LICENSE](https://github.com/christianwgd/django-bootstrap-icons/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
