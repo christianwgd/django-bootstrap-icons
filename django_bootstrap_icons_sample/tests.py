@@ -104,7 +104,7 @@ class BootstrapIconsTest(TestCase):
         base_url = getattr(
             settings,
             'BS_ICONS_BASE_URL',
-            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/',
+            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/',
         )
         icon_not_found = settings.BS_ICONS_NOT_FOUND
         icon_name = 'abcde'
@@ -129,7 +129,7 @@ class BootstrapIconsTest(TestCase):
         base_url = getattr(
             settings,
             'BS_ICONS_BASE_URL',
-            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/',
+            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/',
         )
         icon_name = 'abcde'
         icon_path = f'{base_url}icons/{icon_name}.svg'

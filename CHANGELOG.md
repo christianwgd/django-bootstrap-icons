@@ -2,6 +2,12 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 0.8.7
+
+### Changed
+- Support Django 5: Remove deprecation warning for format_html
+- Update default Bootstrap Icons CDN to version 1.11.2
+
 ## 0.8.6
 
 ### Changed
