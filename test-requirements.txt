@@ -1,8 +1,8 @@
 defusedxml==0.7.1
-django==5.0
-django-bootstrap4==23.2
+django==5.0.2
+django-bootstrap4==24.1
 requests==2.31.0
-pytest==7.4.3
+pytest==8.0.0
 pytest-cov==4.1.0
-pytest-django==4.7.0
-ruff==0.1.7
+pytest-django==4.8.0
+ruff==0.2.1
