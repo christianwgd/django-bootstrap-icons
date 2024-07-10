@@ -1,5 +1,5 @@
 defusedxml==0.7.1
-django==5.0.3
+django==5.0.7
 django-bootstrap4==24.1
 requests==2.32.0
 pytest==8.1.1
