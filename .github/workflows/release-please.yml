@@ -50,7 +50,7 @@ jobs:
       with:
         skip-existing: true
         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository_url: https://test.pypi.org/legacy/
+        repository-url: https://test.pypi.org/legacy/
     - name: Publish distribution 📦 to PyPI
       if: ${{ needs.release-please.outputs.release_created }}
       uses: pypa/gh-action-pypi-publish@release/v1
