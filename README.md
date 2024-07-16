@@ -151,6 +151,13 @@ BS_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/'
 BS_ICONS_BASE_URL defaults to the latest boostrap-icons CDN that was available 
 when releasing this package. Change the URL to use an older or newer one.
 
+You can also load icons from a local path. This will disable downloading icons 
+from BS_ICONS_BASE_URL:
+
+```
+BS_ICONS_BASE_PATH = 'node_modules/bootstrap-icons/'
+```
+
 To add custom icons to your app you need to set the path where these can be found. 
 The default setting is *custom-icons*, so you would add your icons 
 to */your-app/static/custom-icons/*.
@@ -167,7 +174,14 @@ Material Desing Icons are loaded from the default URL:
 MD_ICONS_BASE_URL = 'https://cdn.jsdelivr.net/npm/@mdi/svg@7.2.96/'
 ```
 
-You can change it to your desired location by overriding this setting.       
+You can change it to your desired location by overriding this setting.
+
+You can also load icons from a local path.  This will disable downloading icons 
+from MD_ICONS_BASE_URL:
+
+```
+MD_ICONS_BASE_PATH = 'node_modules/@mdi/svg'
+```
 
 ### Configure icon cache
 
@@ -185,7 +199,7 @@ and stored to a local file. On each subsequent use the icon will be simply loade
 In case icons are not found you can configure, what to display:
 
 ```
-BS_ICONS_NOT_FOUND = f"Icon <{icon_path}> does not exist"
+BS_ICONS_NOT_FOUND = f"Icon `{icon_path}` does not exist"
 ```
 
 This shows the error message if you for example misspelled an icon name.
