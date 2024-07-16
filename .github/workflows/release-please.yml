@@ -17,8 +17,7 @@ jobs:
         id: release
         with:
           release-type: python
-          package-name: django-bootstrap-icons
-          
+
   deploy:
     environment: deployment
     runs-on: ubuntu-latest
