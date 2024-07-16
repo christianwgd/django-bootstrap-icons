@@ -2,6 +2,13 @@
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [0.10.0](https://github.com/christianwgd/django-bootstrap-icons/compare/v0.9.0...v0.10.0) (2024-07-16)
+
+
+### Features
+
+* Add BS_ICONS_BASE_PATH and MD_ICONS_BASE_PATH to use local copies of icon sets. ([#26](https://github.com/christianwgd/django-bootstrap-icons/issues/26)) ([767d3b9](https://github.com/christianwgd/django-bootstrap-icons/commit/767d3b9352c6423f68f17b84014c679806cdf262))
+
 ## [0.9.0](https://github.com/christianwgd/django-bootstrap-icons/compare/0.8.7...v0.9.0) (2024-07-16)
 
 
