@@ -1,5 +1,6 @@
 """ django bootstrap icons templatetags """
 import os
+from pathlib import Path
 import requests
 from defusedxml.minidom import parse, parseString
 
@@ -87,18 +88,19 @@ def custom_icon(icon_name, size=None, color=None, extra_classes=None):
     try:
         content = parse(icon_path)
     except FileNotFoundError:
-        return f"Icon <{icon_path}> does not exist"
+        return f"Icon `{icon_path}` does not exist"
     return mark_safe(render_svg(content, size, color, extra_classes))
 
 
 def get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
     """
     Manage caching of bootstrap icons
-    :param str icon_path: icon path given by CDN
+    :param icon_path icon_path: icon path given by CDN or local path
     :param str icon_name: Name of custom icon to render
     :param str size: size of custom icon to render
     :param str color: color of custom icon to render
     :param str extra_classes: String of classes to add to icon
+    :type icon_path: str or Path
     """
     cache_path = getattr(
         settings,
@@ -119,26 +121,43 @@ def get_icon(icon_path, icon_name, size=None, color=None, extra_classes=None):
 
     # cached icon doesn't exist or no cache configured, create and return icon
     try:
-        resp = requests.get(icon_path, timeout=20)
-        if resp.status_code >= 400:
-            # return f"Icon <{icon_path}> does not exist"
-            return getattr(
-                settings,
-                'BS_ICONS_NOT_FOUND',
-                f"Icon <{icon_path}> does not exist"
-            )
-        content = parseString(resp.text)
-        svg = render_svg(content, size, color, extra_classes)
-        # if cache configured write icon to cache
-        if cache_path and cache_file:
-            with open(cache_file, 'w', encoding="utf-8") as icon_file:
-                icon_file.write(svg)
-    except requests.ConnectionError:
+        if isinstance(icon_path, Path):
+            # icon_path is local path
+            with icon_path.open("r") as icon_file:
+                svg_string = icon_file.read()
+        else:
+            # icon_path is URL
+            resp = requests.get(icon_path, timeout=20)
+            if resp.status_code == 404:
+                # co-opt FileNotFoundError for HTTP 404
+                msg = "Got HTTP 404 when downloading icon"
+                raise FileNotFoundError(msg)
+            resp.raise_for_status()
+            svg_string = resp.text
+
+    except FileNotFoundError:
+        # The icon was not found (on disk, or on the web)
         return getattr(
             settings,
-            'BS_ICONS_NOT_FOUND',
-            f"Icon <{icon_path}> does not exist"
+            "BS_ICONS_NOT_FOUND",
+            f"Icon `{icon_path}` does not exist",
         )
+
+    # RequestException includes ConnectionError, Timeout, HTTPError and TooManyRedirects
+    except (requests.exceptions.RequestException, OSError):
+        # We failed to get the icon, but it might exist
+        return getattr(
+            settings, "BS_ICONS_NOT_FOUND", f"Failed to read icon `{icon_path}`"
+        )
+
+    content = parseString(svg_string)
+    svg = render_svg(content, size, color, extra_classes)
+
+    # if cache configured write icon to cache
+    if cache_path and cache_file:
+        with open(cache_file, "w", encoding="utf-8") as icon_file:
+            icon_file.write(svg)
+
     return svg
 
 
@@ -154,12 +173,17 @@ def bs_icon(icon_name, size=None, color=None, extra_classes=None):
     if icon_name is None:
         return ''
 
-    base_url = getattr(
-        settings,
-        'BS_ICONS_BASE_URL',
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/',
-    )
-    icon_path = f'{base_url}icons/{icon_name}.svg'
+    base_path = getattr(settings, "BS_ICONS_BASE_PATH", None)
+
+    if base_path:
+        icon_path = Path(base_path, "icons", f"{icon_name}.svg")
+    else:
+        base_url = getattr(
+            settings,
+            "BS_ICONS_BASE_URL",
+            "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/",
+        )
+        icon_path = f"{base_url}icons/{icon_name}.svg"
 
     svg = get_icon(icon_path, icon_name, size, color, extra_classes)
     return mark_safe(svg)
@@ -187,12 +211,17 @@ def md_icon(icon_name, size=None, color=None, extra_classes=None):
     if size is None:
         size = '20'
 
-    base_url = getattr(
-        settings,
-        'MD_ICONS_BASE_URL',
-        'https://cdn.jsdelivr.net/npm/@mdi/svg@7.2.96/'
-    )
-    icon_path = f'{base_url}svg/{icon_name}.svg'
+    base_path = getattr(settings, "MD_ICONS_BASE_PATH", None)
+
+    if base_path:
+        icon_path = Path(base_path, "svg", f"{icon_name}.svg")
+    else:
+        base_url = getattr(
+            settings,
+            "MD_ICONS_BASE_URL",
+            "https://cdn.jsdelivr.net/npm/@mdi/svg@7.2.96/",
+        )
+        icon_path = f"{base_url}svg/{icon_name}.svg"
 
     svg = get_icon(icon_path, icon_name, size, color, extra_classes)
     return mark_safe(svg)
