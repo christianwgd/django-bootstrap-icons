@@ -1,5 +1,4 @@
 import re
-from lib2to3.fixes.fix_input import context
 
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
@@ -14,7 +13,7 @@ class SamplesView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['test_icon_names'] = ['airplane', 'apple', 'archive', 'asterisk', 'ban']
-        context['loop'] = range(0, 99)
+        context['loop'] = range(99)
         return context
 
 
