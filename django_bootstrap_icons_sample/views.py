@@ -1,4 +1,5 @@
 import re
+from lib2to3.fixes.fix_input import context
 
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
@@ -9,6 +10,12 @@ from django_bootstrap_icons_sample.forms import IconForm
 
 class SamplesView(TemplateView):
     template_name = "django_bootstrap_icons_sample/samples.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['test_icon_names'] = ['airplane', 'apple', 'archive', 'asterisk', 'ban']
+        context['loop'] = range(0, 99)
+        return context
 
 
 # pylint: disable=too-many-branches

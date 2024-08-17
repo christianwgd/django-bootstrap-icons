@@ -234,4 +234,16 @@ the django-bootstrap-icons css file to make some adjustments to the alignment
     {% md_icon 'alarm' %} Material
 </button>
 
+<h4>Icon cache</h4>
+<p>Even hundrets of icons shouldn't be a problem, if the icon cache is enabled</p>
+
+<table>
+    <tbody>
+    {% for i in loop %}
+        {% for icon_name in test_icon_names %}
+            <tr><td>{{ icon_name }}</td><td>{% bs_icon icon_name %}</td></tr>
+        {% endfor %}
+    {% endfor %}
+</tbody>
+</table>
 {% endblock %}
