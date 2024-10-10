@@ -41,6 +41,9 @@ first parameter, and that's all that's required:
 {% bs_icon 'alarm' %}
 ```
 
+[!NOTE]
+To prevent performance issues you should enable the [icon cache](#configure-icon-cache)!
+
 ### Icon sizes
 
 You can size the icons by setting the size parameter:
