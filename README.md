@@ -5,6 +5,7 @@
 [![Django CI run test](https://github.com/christianwgd/django-bootstrap-icons/actions/workflows/django-test.yml/badge.svg)](https://github.com/christianwgd/django-bootstrap-icons/actions/workflows/django-test.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![codecov](https://codecov.io/gh/christianwgd/django-bootstrap-icons/branch/master/graph/badge.svg?token=O4MWGYV52K)](https://codecov.io/gh/christianwgd/django-bootstrap-icons)
+[![Published on Django Packages](https://img.shields.io/badge/Published%20on-Django%20Packages-0c3c26)](https://djangopackages.org/packages/p/django-bootstrap-icons/)
 
 A quick way to add [Bootstrap Icons](https://icons.getbootstrap.com) with Django 
 template tags.
