@@ -2,7 +2,7 @@ defusedxml==0.7.1
 django==5.2.13
 django-bootstrap4==26.1
 requests==2.33.0
-pytest==9.0.2
+pytest==9.0.3
 pytest-cov==7.1.0
 pytest-django==4.12.0
 ruff==0.15.8
